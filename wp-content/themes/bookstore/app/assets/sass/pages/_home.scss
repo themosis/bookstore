@@ -1,0 +1,37 @@
+#bks-promo{
+	width: 100%;
+	max-width: 100%;
+	background-color: #e375a2;
+}
+
+.promo-wrapper{
+	position: relative;
+	display: block;
+	min-height: 400px;
+	height: 400px;
+
+	.promo-container{
+		width: 380px;
+		padding-top: 75px;
+
+		h1{
+			@include font-size(48);
+			font-weight: 100;
+			color: #ffffff;
+			text-transform: uppercase;
+		}
+
+		h5{
+			@include font-size(19);
+			font-weight: 600;
+			color: #ffffff;
+			margin: 1.5em 0;
+		}
+	}
+
+	.promo-media{
+		position: absolute;
+		bottom: -86px;
+		right: 0px;
+	}
+}

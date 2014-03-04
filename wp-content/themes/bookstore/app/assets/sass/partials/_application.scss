@@ -3,6 +3,30 @@ body{
    font-weight: 300;
 }
 
+/* COMMON */
+.wrapper{
+	width: $width;
+	max-width: $max-width;
+	margin: 0 auto;
+}
+
+.big-button, .big-button:link, .big-button:visited, .big-button:active{
+	display: inline-block;
+	background-color: $main-color;
+	@include border-radius(30px, 30px);
+	color: $dark-color;
+	padding: 0.8em 1.4em;
+	text-decoration: none;
+	@include font-size(21);
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.big-button:hover{
+	background-color: $green;
+	color: #ffffff;
+}
+
 /* HEADER */
 header{
 	position: relative;
