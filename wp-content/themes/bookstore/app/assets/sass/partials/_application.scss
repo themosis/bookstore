@@ -1,6 +1,7 @@
 body{
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-   font-weight: 300;
+   	font-weight: 300;
+   	@include font-size(17);
 }
 
 /* COMMON */
@@ -25,6 +26,22 @@ body{
 .big-button:hover{
 	background-color: $green;
 	color: #ffffff;
+}
+
+.tiny-button, .tiny-button:link, .tiny-button:active, .tiny-button:visited{
+	display: inline-block;
+	background-color: $green;
+	@include border-radius(8px, 8px);
+	color: #ffffff;
+	padding: 0.8em 1.4em;
+	text-decoration: none;
+	@include font-size(17);
+	font-weight: 600;
+	text-transform: uppercase;
+}
+
+.tiny-button:hover{
+	background-color: $dark-color;
 }
 
 /* HEADER */
@@ -85,4 +102,80 @@ header{
 	background-repeat: no-repeat;
 	border-left: 2px solid #bfb05b;
 	cursor: pointer;
+}
+
+/* TOP TITLES */
+.bks-title-box{
+	position: relative;
+	border-bottom: 2px solid $dark-color;
+
+	h1{
+		color: $dark-color;
+		@include font-size(48);
+		font-weight: 200;
+		text-transform: uppercase;
+	}
+
+	.bks-link, .bks-link:link, .bks-link:active, .bks-link:visited{
+		position: absolute;
+		top: 28px;
+		right: 0px;
+		@include font-size(15);
+		color: $dark-color;
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	.bks-link:hover{
+		color: $green;
+	}
+}
+
+/* BOOKS LIST */
+.books{
+	li{
+		width: 280px;
+		display: inline-block;
+		margin-right: 55px;
+
+		.book{
+			width: 280px;
+
+			h3{
+				color: $dark-color;
+				@include font-size(30);
+				font-weight: 600;
+				min-height: 2em;
+				margin-bottom: 0.5em;
+			}
+
+			.book-featured-box, .book-featured-box:link, .book-featured-box:active, .book-featured-box:visited{
+				display: block;
+				cursor: pointer;
+				width: 266px;
+				height: 146px;
+				padding: 7px;
+				background-color: $main-color;
+			}
+
+			.book-featured-box:hover{
+				background-color: $green;
+			}
+
+			p{
+				line-height: 1.53em;
+				margin-top: 1.53em;
+			}
+
+			.button-box{
+				text-align: center;
+				width: 100%;
+				margin-top: 1.5em;
+			}
+		}
+	}
+
+	.last{
+		margin-right: 0px;
+	}
 }

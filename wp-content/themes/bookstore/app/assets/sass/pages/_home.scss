@@ -16,7 +16,7 @@
 
 		h1{
 			@include font-size(48);
-			font-weight: 100;
+			font-weight: 200;
 			color: #ffffff;
 			text-transform: uppercase;
 		}
@@ -34,4 +34,12 @@
 		bottom: -86px;
 		right: 0px;
 	}
+}
+
+#popular-books{
+	padding-top: 4em;
+}
+
+#popular-container{
+	padding: 2em 0;
 }
