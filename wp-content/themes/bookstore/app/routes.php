@@ -9,8 +9,8 @@
 *
 */
 
-Route::is('home', function(){
+Route::is('front', function(){
 
-    return "Congratulations! Your Themosis installation is running.";
+    return View::make('pages.home');
 
 });
