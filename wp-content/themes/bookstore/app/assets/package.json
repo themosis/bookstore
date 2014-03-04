@@ -1,0 +1,23 @@
+{
+  "name": "Bookstore",
+  "version": "1.0.0",
+  "description": "Bookstore assets.",
+  "main": "/",
+  "scripts": {
+    "test": "/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "/"
+  },
+  "keywords": [
+    "/"
+  ],
+  "author": "Julien Lambé",
+  "license": "GPLv2",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-compass": "~0.7.2"
+  }
+}

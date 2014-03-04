@@ -1,4 +1,4 @@
 .htaccess
 wp-config-local.php
 wp-content/themes/bookstore/app/assets/node_modules
-wp-content/themes/bookstore/app/assets/.sass_cache
+wp-content/themes/bookstore/app/assets/.sass-cache
