@@ -64,5 +64,39 @@
 		</div>
 	</div>
 	<!-- END POPULAR -->
+	<!-- BLOG -->
+	<div id="bks-blog">
+		<div class="wrapper">
+			<div class="bks-title-box">
+				<h1>Latest news</h1>
+				<a href="#" title="Articles" class="bks-link">&gt; all articles</a>
+			</div>
+			<div class="bks-home-blog">
+				<ul>
+					<li>
+						<article class="home-article">
+							<h5>3 March 2014</h5>
+							<h2>The March selection of our readers.</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla ipsum nunc, vel aliquam arcu egestas ut. Proin congue nisl nunc, vitae feugiat enim tempor non.</p>
+							<div class="link-box">
+								<a href="#" class="tiny-button yellow" title="Read more">Read more</a>
+							</div>
+						</article>
+					</li>
+					<li class="last">
+						<article class="home-article">
+							<h5>14 February 2014</h5>
+							<h2>Top 10 of romance litterature.</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla ipsum nunc, vel aliquam arcu egestas ut. Proin congue nisl nunc, vitae feugiat enim tempor non.</p>
+							<div class="link-box">
+								<a href="#" class="tiny-button yellow" title="Read more">Read more</a>
+							</div>
+						</article>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- END BLOG -->
 
 @include('footer')
