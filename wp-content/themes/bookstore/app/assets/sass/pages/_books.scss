@@ -11,3 +11,19 @@
 		}
 	}
 }
+
+#book--container{
+	padding-top: 4em;
+	padding-left: 280px;
+}
+
+#book--content{
+	padding: 3em 0;
+	width: 400px;
+
+	p{
+		color: $dark-color;
+		text-indent: 1em;
+		line-height: 1.5em;
+	}
+}

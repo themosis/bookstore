@@ -27,4 +27,4 @@ Route::only('singular', 'bks-books', function(){
 
 	return View::make('pages.book');
 
-})
+});
