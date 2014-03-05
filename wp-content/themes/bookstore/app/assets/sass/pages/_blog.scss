@@ -78,6 +78,31 @@
 	.last{
 		border-bottom: none;
 	}
+
+	.single-article{
+		border-bottom: none;
+
+		.article--excerpt{
+
+			.article--excerpt__content{
+				text-align: left;
+
+				p{
+					margin-bottom: 1.2em;
+				}
+
+				.article--navigation{
+					.prev-button {
+						float: left;
+					}
+
+					.next-button{
+						float: right;
+					}
+				}
+			}
+		}
+	}
 }
 
 #news--sidebar{
@@ -122,9 +147,13 @@
 
 	.sidebar--widget:last-child{
 		margin-bottom: 0px;
-		
+
 		.sidebar--widget__content{
 			border-bottom: none;
 		}
 	}
+}
+
+.related-posts{
+	margin-top: 0px !important;
 }

@@ -51,3 +51,8 @@ Route::is('home', function(){
 });
 
 // Single post
+Route::only('singular', 'post', function(){
+
+	return View::make('blog.post');
+
+});
