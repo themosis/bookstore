@@ -28,3 +28,10 @@ Route::only('singular', 'bks-books', function(){
 	return View::make('pages.book');
 
 });
+
+// About page
+Route::only('page', 'about', function(){
+
+	return View::make('pages.about');
+
+});
