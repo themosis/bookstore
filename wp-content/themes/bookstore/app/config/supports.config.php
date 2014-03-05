@@ -12,7 +12,7 @@ return array(
 	// Enable post thumbnails
 	/* --------------------------------------------------------------- */
 
-	'post-thumbnails' => array('post', 'bks-books'),
+	'post-thumbnails' => array('post'),
 
 	/* --------------------------------------------------------------- */
 	// Enable post formats (aside, gallery, link, image, ...)
