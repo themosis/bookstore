@@ -22,13 +22,12 @@
                 </a>
             </div>
             <div id="bookstore-navigation">
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Books</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Help</a></li>
-                    <li><a href="#">News</a></li>
-                </ul>
+                <?php 
+                    wp_nav_menu(array(
+                        'theme_location' => 'header-nav',
+                        'container'      => false
+                    ));
+                ?>
             </div>
             <div id="bookstore-search">
                 <div id="search-button"></div>

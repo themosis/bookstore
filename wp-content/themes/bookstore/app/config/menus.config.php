@@ -9,7 +9,8 @@ return array(
 	* http://codex.wordpress.org/Function_Reference/register_nav_menus
 	* 
 	*/
-	'header-nav'	=> 'Header navigation'
+	'header-nav'	=> 'Header navigation',
+	'footer-nav'	=> 'Footer navigation'
 
 );
 
