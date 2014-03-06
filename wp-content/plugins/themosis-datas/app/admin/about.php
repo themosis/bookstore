@@ -18,7 +18,7 @@ if (themosisIsPost($about->ID)) {
 			Field::text('job'),
 			Field::media('pic', array('info' => 'Select <b>Team</b> size for the image.'))
 
-		), array('info' => 'Set your collaborator list.'))
+		), array('title' => 'Members', 'info' => 'Set your collaborator list.'))
 
 	));
 
