@@ -16,6 +16,7 @@ add_action('init', function(){
 
 	add_image_size('book-promo', 399, 435, true);
 	add_image_size('book-featured-image', 266, 146, true);
+	add_image_size('member-pic', 104, 104, true);
 
 	// Default featured image size
 	set_post_thumbnail_size(620, 200, true);
@@ -28,8 +29,9 @@ add_action('init', function(){
 add_filter('image_size_names_choose', function($mediaSizes){
 
 	$sizes = array(
-    	'book-promo' => __('Book promo', THEMOSISTHEME_TEXTDOMAIN),
-    	'book-featured-image' => __('Book featured image', THEMOSISTHEME_TEXTDOMAIN)
+    	'book-promo' 			=> __('Book promo', THEMOSISTHEME_TEXTDOMAIN),
+    	'book-featured-image' 	=> __('Book featured image', THEMOSISTHEME_TEXTDOMAIN),
+    	'member-pic' 			=> __('Team profile', THEMOSISTHEME_TEXTDOMAIN)
 	);
 
    return array_merge($mediaSizes, $sizes);
