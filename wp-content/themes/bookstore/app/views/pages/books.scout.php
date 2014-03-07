@@ -7,114 +7,21 @@
 		</div>
 		<div id="books--collection">
 			<ul class="books">
-				<li>
-					<div class="book">
-						<h3>Design is a job</h3>
-						<a href="#" class="book-featured-box">
-							<img src="<?php echo(themosisAssets()); ?>/images/book001.jpg" alt="Book featured image" width="266" height="146">
-						</a>
-						<p>Co-founder of Mule Design and raconteur Mike Monteiro wants to help you do your job better.</p>
-						<div class="button-box">
-							<a href="#" class="tiny-button">Buy</a>
+				<?php $modulo = 3; ?>
+				@foreach($books as $i => $book)
+					<li <?php if($modulo - 1 == $i % $modulo ){ echo('class="last"'); } ?>>
+						<div class="book">
+							<h3>{{ $book->post_title }}</h3>
+							<a href="#" class="book-featured-box" style="background-color: {{ Meta::get($book->ID, 'color') }};">
+								<img src="{{ Meta::get($book->ID, 'book-feature') }}" alt="{{ $book->post_title }}" width="266" height="146">
+							</a>
+							<p>{{ $book->post_excerpt }}</p>
+							<div class="button-box">
+								<a href="{{ get_permalink($book->ID) }}" class="tiny-button">Buy</a>
+							</div>
 						</div>
-					</div>
-				</li>
-				<li>
-					<div class="book">
-						<h3>The elements of content strategy</h3>
-						<a href="#" class="book-featured-box">
-							<img src="<?php echo(themosisAssets()); ?>/images/book002.jpg" alt="Book featured image" width="266" height="146">
-						</a>
-						<p>Co-founder of Mule Design and raconteur Mike Monteiro wants to help you do your job better.</p>
-						<div class="button-box">
-							<a href="#" class="tiny-button">Buy</a>
-						</div>
-					</div>
-				</li>
-				<li class="last">
-					<div class="book">
-						<h3>HTML5 for web designers</h3>
-						<a href="#" class="book-featured-box">
-							<img src="<?php echo(themosisAssets()); ?>/images/book003.jpg" alt="Book featured image" width="266" height="146">
-						</a>
-						<p>Co-founder of Mule Design and raconteur Mike Monteiro wants to help you do your job better.</p>
-						<div class="button-box">
-							<a href="#" class="tiny-button">Buy</a>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="book">
-						<h3>Design is a job</h3>
-						<a href="#" class="book-featured-box">
-							<img src="<?php echo(themosisAssets()); ?>/images/book001.jpg" alt="Book featured image" width="266" height="146">
-						</a>
-						<p>Co-founder of Mule Design and raconteur Mike Monteiro wants to help you do your job better.</p>
-						<div class="button-box">
-							<a href="#" class="tiny-button">Buy</a>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="book">
-						<h3>The elements of content strategy</h3>
-						<a href="#" class="book-featured-box">
-							<img src="<?php echo(themosisAssets()); ?>/images/book002.jpg" alt="Book featured image" width="266" height="146">
-						</a>
-						<p>Co-founder of Mule Design and raconteur Mike Monteiro wants to help you do your job better.</p>
-						<div class="button-box">
-							<a href="#" class="tiny-button">Buy</a>
-						</div>
-					</div>
-				</li>
-				<li class="last">
-					<div class="book">
-						<h3>HTML5 for web designers</h3>
-						<a href="#" class="book-featured-box">
-							<img src="<?php echo(themosisAssets()); ?>/images/book003.jpg" alt="Book featured image" width="266" height="146">
-						</a>
-						<p>Co-founder of Mule Design and raconteur Mike Monteiro wants to help you do your job better.</p>
-						<div class="button-box">
-							<a href="#" class="tiny-button">Buy</a>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="book">
-						<h3>Design is a job</h3>
-						<a href="#" class="book-featured-box">
-							<img src="<?php echo(themosisAssets()); ?>/images/book001.jpg" alt="Book featured image" width="266" height="146">
-						</a>
-						<p>Co-founder of Mule Design and raconteur Mike Monteiro wants to help you do your job better.</p>
-						<div class="button-box">
-							<a href="#" class="tiny-button">Buy</a>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="book">
-						<h3>The elements of content strategy</h3>
-						<a href="#" class="book-featured-box">
-							<img src="<?php echo(themosisAssets()); ?>/images/book002.jpg" alt="Book featured image" width="266" height="146">
-						</a>
-						<p>Co-founder of Mule Design and raconteur Mike Monteiro wants to help you do your job better.</p>
-						<div class="button-box">
-							<a href="#" class="tiny-button">Buy</a>
-						</div>
-					</div>
-				</li>
-				<li class="last">
-					<div class="book">
-						<h3>HTML5 for web designers</h3>
-						<a href="#" class="book-featured-box">
-							<img src="<?php echo(themosisAssets()); ?>/images/book003.jpg" alt="Book featured image" width="266" height="146">
-						</a>
-						<p>Co-founder of Mule Design and raconteur Mike Monteiro wants to help you do your job better.</p>
-						<div class="button-box">
-							<a href="#" class="tiny-button">Buy</a>
-						</div>
-					</div>
-				</li>
+					</li>
+				@endforeach
 			</ul>
 		</div>
 	</div>
