@@ -9,11 +9,7 @@
 *
 */
 // The front page
-Route::is('front', function(){
-
-    return View::make('pages.home');
-
-});
+Route::is('front', 'home@index');
 
 // The books page
 Route::only('postTypeArchive', 'bks-books', function(){

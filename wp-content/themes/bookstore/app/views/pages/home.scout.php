@@ -1,16 +1,16 @@
 @include('header')
 
 	<!-- BOOK PROMO -->
-	<div id="bks-promo">
+	<div id="bks-promo" style="background-color: {{ $promo->color }};">
 		<div class="wrapper">
 			<div class="promo-wrapper">
 				<div class="promo-container">
-					<h1>Sass for web designers</h1>
-					<h5>By Dan Cederholm</h5>
-					<a href="#" class="big-button">Buy book</a>
+					<h1>{{ $promo->title }}</h1>
+					<h5>By {{ $promo->author }}</h5>
+					<a href="{{ $promo->link }}" class="big-button">Buy book</a>
 				</div>
 				<div class="promo-media">
-					<img src="<?php echo(themosisAssets()); ?>/images/book001.png" alt="Demo Book" width="399" height="435">
+					<img src="{{ $promo->image }}" alt="{{ $promo->title }}" width="399" height="435">
 				</div>
 			</div>
 		</div>
@@ -20,46 +20,27 @@
 	<div id="popular-books" class="wrapper">
 		<div class="bks-title-box">
 			<h1>Popular</h1>
-			<a href="#" title="Books" class="bks-link">&gt; all books</a>
+			<a href="{{ home_url('books/') }}" title="Books" class="bks-link">&gt; all books</a>
 		</div>
 		<div id="popular-container">
 			<ul class="books">
-				<li>
-					<div class="book">
-						<h3>Design is a job</h3>
-						<a href="#" class="book-featured-box">
-							<img src="<?php echo(themosisAssets()); ?>/images/book001.jpg" alt="Book featured image" width="266" height="146">
-						</a>
-						<p>Co-founder of Mule Design and raconteur Mike Monteiro wants to help you do your job better.</p>
-						<div class="button-box">
-							<a href="#" class="tiny-button">Buy</a>
+				<?php
+					$modulo = 3;
+				?>
+				@foreach($books as $i => $book)
+					<li <?php if(2 == $i % $modulo){ echo('class="last"'); } ?>>
+						<div class="book">
+							<h3>{{ $book->title }}</h3>
+							<a href="#" class="book-featured-box" style="background-color: {{ $book->color }};">
+								<img src="{{ $book->image }}" alt="Book featured image" width="266" height="146">
+							</a>
+							<p>{{ $book->excerpt }}</p>
+							<div class="button-box">
+								<a href="{{ $book->link }}" class="tiny-button">Buy</a>
+							</div>
 						</div>
-					</div>
-				</li>
-				<li>
-					<div class="book">
-						<h3>The elements of content strategy</h3>
-						<a href="#" class="book-featured-box">
-							<img src="<?php echo(themosisAssets()); ?>/images/book002.jpg" alt="Book featured image" width="266" height="146">
-						</a>
-						<p>Co-founder of Mule Design and raconteur Mike Monteiro wants to help you do your job better.</p>
-						<div class="button-box">
-							<a href="#" class="tiny-button">Buy</a>
-						</div>
-					</div>
-				</li>
-				<li class="last">
-					<div class="book">
-						<h3>HTML5 for web designers</h3>
-						<a href="#" class="book-featured-box">
-							<img src="<?php echo(themosisAssets()); ?>/images/book003.jpg" alt="Book featured image" width="266" height="146">
-						</a>
-						<p>Co-founder of Mule Design and raconteur Mike Monteiro wants to help you do your job better.</p>
-						<div class="button-box">
-							<a href="#" class="tiny-button">Buy</a>
-						</div>
-					</div>
-				</li>
+					</li>
+				@endforeach
 			</ul>
 		</div>
 	</div>
@@ -69,30 +50,25 @@
 		<div class="wrapper">
 			<div class="bks-title-box">
 				<h1>Latest news</h1>
-				<a href="#" title="Articles" class="bks-link">&gt; all articles</a>
+				<a href="{{ get_permalink($newspage->ID) }}" title="Articles" class="bks-link">&gt; all articles</a>
 			</div>
 			<div class="bks-home-blog">
 				<ul>
-					<li>
-						<article class="home-article">
-							<h5>3 March 2014</h5>
-							<h2>The March selection of our readers.</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla ipsum nunc, vel aliquam arcu egestas ut. Proin congue nisl nunc, vitae feugiat enim tempor non.</p>
-							<div class="link-box">
-								<a href="#" class="tiny-button yellow" title="Read more">Read more</a>
-							</div>
-						</article>
-					</li>
-					<li class="last">
-						<article class="home-article">
-							<h5>14 February 2014</h5>
-							<h2>Top 10 of romance litterature.</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla ipsum nunc, vel aliquam arcu egestas ut. Proin congue nisl nunc, vitae feugiat enim tempor non.</p>
-							<div class="link-box">
-								<a href="#" class="tiny-button yellow" title="Read more">Read more</a>
-							</div>
-						</article>
-					</li>
+					<?php
+						$modulo = 2;
+					?>
+					@foreach($news as $i => $article)
+						<li <?php if(1 == $i % $modulo){ echo('class="last"'); } ?>>
+							<article class="home-article">
+								<h5>{{ get_post_time('j F Y', true, $article->ID) }}</h5>
+								<h2>{{ $article->post_title }}</h2>
+								<p>{{ implode(' ', array_slice(explode(' ', strip_tags($article->post_content)), 0, 20)) }}...</p>
+								<div class="link-box">
+									<a href="{{ get_permalink($article->ID) }}" class="tiny-button yellow" title="Read more">Read more</a>
+								</div>
+							</article>
+						</li>
+					@endforeach
 				</ul>
 			</div>
 		</div>
