@@ -52,3 +52,10 @@ Route::only('singular', 'post', function(){
 	));
 
 });
+
+// Search page
+Route::is('search', function(){
+
+	return View::make('search', array('search' => $_GET['s']));
+
+});

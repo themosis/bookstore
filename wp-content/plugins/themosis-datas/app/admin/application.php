@@ -8,6 +8,7 @@ Asset::add('bookstore-main-styles', 'css/screen.css', false, '1.0', 'all');
 
 // JS
 Asset::add('bks-modernizr', 'js/vendor/modernizr.js', false, '2.7.1');
+Asset::add('bks-main', 'js/main.js', array('jquery'), '1.0', true);
 
 /*-----------------------------------------------------------------------*/
 // CUSTOM IMAGE SIZES
@@ -63,3 +64,17 @@ function bks_getPromoBooks(){
 	return $books;
 
 }
+
+/*-----------------------------------------------------------------------*/
+// FILTER SEARCH RESULTS
+/*-----------------------------------------------------------------------*/
+function bks_searchfilter($query) {
+
+    if ($query->is_search && !is_admin() ) {
+        $query->set('post_type',array('bks-books'));
+    }
+
+	return $query;
+}
+
+add_filter('pre_get_posts','bks_searchfilter');

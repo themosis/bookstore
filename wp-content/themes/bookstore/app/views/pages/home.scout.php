@@ -31,7 +31,7 @@
 					<li <?php if(2 == $i % $modulo){ echo('class="last"'); } ?>>
 						<div class="book">
 							<h3>{{ $book->title }}</h3>
-							<a href="#" class="book-featured-box" style="background-color: {{ $book->color }};">
+							<a href="{{ $book->link }}" class="book-featured-box" style="background-color: {{ $book->color }};">
 								<img src="{{ $book->image }}" alt="Book featured image" width="266" height="146">
 							</a>
 							<p>{{ $book->excerpt }}</p>

@@ -31,5 +31,13 @@
             </div>
             <div id="bookstore-search">
                 <div id="search-button"></div>
+                <div id="search--form">
+                    <div id="search--form__icon"></div>
+                    <div id="search--form__form">
+                        <form class="searchform" action="/" method="get" role="search">
+                            <input id="s" placeholder="Search book" type="text" name="s" value=""></input>
+                        </form>
+                    </div>
+                </div>
             </div>
         </header>

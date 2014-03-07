@@ -40,7 +40,7 @@
 					<li <?php if($modulo - 1 == $i % $modulo) { echo('class="last"'); } ?>>
 						<div class="book">
 							<h3>{{ $b->title }}</h3>
-							<a href="#" class="book-featured-box" style="background-color: {{ $b->color }};">
+							<a href="{{ $b->link }}" class="book-featured-box" style="background-color: {{ $b->color }};">
 								<img src="{{ $b->image }}" alt="{{ $b->title }}" width="266" height="146">
 							</a>
 							<p>{{ $b->excerpt }}</p>

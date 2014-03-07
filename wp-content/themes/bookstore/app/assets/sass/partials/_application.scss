@@ -100,6 +100,7 @@ header{
 	position: absolute;
 	top: 0px;
 	right: 0px;
+	height: 122px;
 }
 
 #search-button{
@@ -111,6 +112,50 @@ header{
 	background-repeat: no-repeat;
 	border-left: 2px solid #bfb05b;
 	cursor: pointer;
+}
+
+#search--form{
+	display: none;
+	position: absolute;
+	height: 60px;
+	right: 0px;
+	top: 60px;
+	width: 320px;
+	z-index: 5000;
+	border-bottom: 2px solid #bfbfbf;
+
+	#search--form__icon{
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 60px;
+		height: 60px;
+		background-color: $main-color;
+		background-image: url('../images/arrow.png');
+		background-position: 20px 16px;
+		background-repeat: no-repeat;
+	}
+
+	#search--form__form{
+		position: absolute;
+		top: 0px;
+		left: 60px;
+		background-color: #ffffff;
+		width: 260px;
+		overflow-x: hidden;
+		padding: 8px 0px;
+
+		form{
+			input{
+				@include font-size(36);
+				font-weight: 200;
+				border:none;
+				outline: none;
+				padding-left: 10px;
+				max-width: 240px;
+			}
+		}
+	}
 }
 
 /* FOOTER */
