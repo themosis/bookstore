@@ -6,77 +6,25 @@
 			<h1>The Bookstore team</h1>
 		</div>
 		<div id="about--content">
-			<p> Pellentesque iaculis magna at lacinia semper. Curabitur nec sem sagittis, pretium neque eget, posuere diam. Nulla interdum ligula ac quam aliquet eleifend. Nunc adipiscing congue pretium. Sed convallis, velit a blandit pretium, velit purus adipiscing ligula, convallis interdum nulla tortor ac mi. Praesent nec eros at nunc consectetur convallis. Nulla facilisi. Aliquam diam mauris, consequat sed leo at, congue fermentum dui. Maecenas a sollicitudin nisl. Praesent varius quam ac nPraesent rhoncus accumsan dui in congue. Nunc sit amet vulputate nibh. Aenean sagittis turpis eu imperdiet ullamcorper. Vestibulum nec pulvinar nulla, ac rhoncus libero. Cras in lacus velit. Ut sit amet lectus sed enim volutpat imperdiet. Praesent eu metus eget magna aliquet fermentum non at eros.</p>
-			<p>Praesent rhoncus accumsan dui in congue. Nunc sit amet vulputate nibh. Aenean sagittis turpis eu imperdiet ullamcorper. Vestibulum nec pulvinar nulla, ac rhoncus libero. Cras in lacus velit. Ut sit amet lectus sed enim volutpat imperdiet. Praesent eu metus eget magna aliquet fermentum non at eros. Aenean lobortis velit sapien, ac mattis diam fermentum vel. </p>
+			{{ apply_filters('the_content', $page->post_content) }}
 		</div>
 		<div id="about--team">
 			<ul>
-				<li>
-					<div class="member clearfix">
-						<div class="member--picture">
-							<img src="<?php echo(themosisAssets()); ?>/images/marcel.png" alt="Marcel">
+			<?php $modulo = 3; $i = 0; ?>
+				@foreach($members as $member)
+					<li <?php if($modulo - 1 == $i % $modulo){ echo('class="last"'); } ?>>
+						<div class="member clearfix">
+							<div class="member--picture">
+								<img src="{{ $member['fields']['pic'] }}" alt="{{ $member['fields']['full-name'] }}">
+							</div>
+							<div class="member--bio">
+								<h4>{{ $member['fields']['full-name'] }}</h4>
+								<p>{{ $member['fields']['job'] }}</p>
+							</div>
 						</div>
-						<div class="member--bio">
-							<h4>Marcel Proust</h4>
-							<p>Founder</p>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="member clearfix">
-						<div class="member--picture">
-							<img src="<?php echo(themosisAssets()); ?>/images/marcel.png" alt="Marcel">
-						</div>
-						<div class="member--bio">
-							<h4>Marcel Proust</h4>
-							<p>Founder</p>
-						</div>
-					</div>
-				</li>
-				<li class="last">
-					<div class="member clearfix">
-						<div class="member--picture">
-							<img src="<?php echo(themosisAssets()); ?>/images/marcel.png" alt="Marcel">
-						</div>
-						<div class="member--bio">
-							<h4>Marcel Proust</h4>
-							<p>Founder</p>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="member clearfix">
-						<div class="member--picture">
-							<img src="<?php echo(themosisAssets()); ?>/images/marcel.png" alt="Marcel">
-						</div>
-						<div class="member--bio">
-							<h4>Marcel Proust</h4>
-							<p>Founder</p>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="member clearfix">
-						<div class="member--picture">
-							<img src="<?php echo(themosisAssets()); ?>/images/marcel.png" alt="Marcel">
-						</div>
-						<div class="member--bio">
-							<h4>Marcel Proust</h4>
-							<p>Founder</p>
-						</div>
-					</div>
-				</li>
-				<li class="last">
-					<div class="member clearfix">
-						<div class="member--picture">
-							<img src="<?php echo(themosisAssets()); ?>/images/marcel.png" alt="Marcel">
-						</div>
-						<div class="member--bio">
-							<h4>Marcel Proust</h4>
-							<p>Founder</p>
-						</div>
-					</div>
-				</li>
+					</li>
+					<?php $i++; ?>
+				@endforeach
 			</ul>
 		</div>
 	</div>
@@ -86,30 +34,25 @@
 		<div class="wrapper">
 			<div class="bks-title-box">
 				<h1>Latest news</h1>
-				<a href="#" title="Articles" class="bks-link">&gt; all articles</a>
+				<a href="{{ get_permalink($newspage->ID) }}" title="Articles" class="bks-link">&gt; all articles</a>
 			</div>
 			<div class="bks-home-blog">
 				<ul>
-					<li>
-						<article class="home-article">
-							<h5>3 March 2014</h5>
-							<h2>The March selection of our readers.</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla ipsum nunc, vel aliquam arcu egestas ut. Proin congue nisl nunc, vitae feugiat enim tempor non.</p>
-							<div class="link-box">
-								<a href="#" class="tiny-button yellow" title="Read more">Read more</a>
-							</div>
-						</article>
-					</li>
-					<li class="last">
-						<article class="home-article">
-							<h5>14 February 2014</h5>
-							<h2>Top 10 of romance litterature.</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla ipsum nunc, vel aliquam arcu egestas ut. Proin congue nisl nunc, vitae feugiat enim tempor non.</p>
-							<div class="link-box">
-								<a href="#" class="tiny-button yellow" title="Read more">Read more</a>
-							</div>
-						</article>
-					</li>
+					<?php
+						$modulo = 2;
+					?>
+					@foreach($news as $i => $article)
+						<li <?php if(1 == $i % $modulo){ echo('class="last"'); } ?>>
+							<article class="home-article">
+								<h5>{{ get_post_time('j F Y', true, $article->ID) }}</h5>
+								<h2>{{ $article->post_title }}</h2>
+								<p>{{ implode(' ', array_slice(explode(' ', strip_tags($article->post_content)), 0, 20)) }}...</p>
+								<div class="link-box">
+									<a href="{{ get_permalink($article->ID) }}" class="tiny-button yellow" title="Read more">Read more</a>
+								</div>
+							</article>
+						</li>
+					@endforeach
 				</ul>
 			</div>
 		</div>

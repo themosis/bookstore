@@ -11,8 +11,8 @@ if (themosisIsPost($help->ID)) {
 	/*-----------------------------------------------------------------------*/
 	Metabox::make('Infos', 'page')->set(array(
 
-		Field::text('help-text', array('title' => 'Text', 'info' => 'Tip text.')),
-		Field::text('help-email', array('title' => 'Email', 'info' => 'Please insert a correct email address.'))
+		Field::text('help-text', array('title' => 'Text', 'info' => 'Tip text.'))
+		
 	));
 
 }

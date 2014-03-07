@@ -22,18 +22,10 @@ Route::only('singular', 'bks-books', function(){
 });
 
 // About page
-Route::only('page', 'about', function(){
-
-	return View::make('pages.about');
-
-});
+Route::only('page', 'about', 'about@index');
 
 // Help page
-Route::only('page', 'help', function(){
-
-	return View::make('pages.help');
-
-});
+Route::only('page', 'help', 'help@index');
 
 // News page or the WordPress 'home' page
 Route::is('home', function(){
