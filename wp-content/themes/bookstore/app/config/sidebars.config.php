@@ -9,13 +9,13 @@ return array(
 	*/
 	array(
 
-		'name'			=> 'First sidebar',
-		'id'			=> 'first-sidebar',
-		'description'	=> 'Area of first sidebar',
-		'before_widget'	=> '<div>',
-		'after_widget'	=> '</div>',
-		'before_title'	=> '<h2>',
-		'after_title'	=> '</h2>'
+		'name'			=> 'Blog',
+		'id'			=> 'blog-sidebar',
+		'description'	=> 'Blog sidebar.',
+		'before_widget'	=> '<div class="sidebar--widget"><div class="sidebar--widget__content">',
+		'after_widget'	=> '</div></div>',
+		'before_title'	=> '<h3>',
+		'after_title'	=> '</h3>'
 
 	)
 

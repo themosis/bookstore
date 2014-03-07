@@ -4,85 +4,59 @@
 		<div id="news" class="clearfix">
 			<!-- ARTICLES -->
 			<div id="news--articles">
-				<article class="single-article">
-					<div class="article--date">
-						<span>3 March 2014</span>
-					</div>
-					<a href="#" class="article--title"><h2>The March selection of our readers.</h2></a>
-					<img src="<?php echo(themosisAssets()); ?>/images/articleFeaturedImage001.jpg" alt="Article featured image">
-					<div class="article--excerpt clearfix">
-						<div class="article--excerpt__content">
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla ipsum nunc, vel aliquam arcu egestas ut. Proin congue nisl nunc, vitae feugiat enim tempor non.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla ipsum nunc, vel aliquam arcu egestas ut. Proin congue nisl nunc, vitae feugiat enim tempor non.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla ipsum nunc, vel aliquam arcu egestas ut. Proin congue nisl nunc, vitae feugiat enim tempor non.</p>
-							<div class="article--navigation clearfix">
-								<a href="#" class="tiny-button yellow prev-button">Previous</a>
-								<a href="#" class="tiny-button yellow next-button">Next</a>
+				@loop(array('p' => $article->ID))
+					<article class="single-article">
+						<div class="article--date">
+							<span>{{ get_the_date('d F Y') }}</span>
+						</div>
+						<span class="article--title"><h2>{{ Loop::title() }}</h2></span>
+						{{ Loop::thumbnail() }}
+						<div class="article--excerpt clearfix">
+							<div class="article--excerpt__content">
+								{{ Loop::content() }}
+								<div class="article--navigation clearfix">
+									<?php previous_post_link('%link', 'Previous'); ?>
+									<?php next_post_link('%link', 'Next'); ?>
+								</div>
 							</div>
 						</div>
-					</div>
-				</article>
+					</article>
+				@endloop
 			</div>
 			<!-- END ARTICLES -->
 			<!-- SIDEBAR -->
 			<div id="news--sidebar">
 				<div class="sidebar">
-					<div class="sidebar--widget">
-						<div class="sidebar--widget__content">
-							<h3>Categories</h3>
-							<ul>
-								<li><a href="#">News</a></li>
-								<li><a href="#">Miscellaneous</a></li>
-								<li><a href="#">Design</a></li>
-								<li><a href="#">Development</a></li>
-								<li><a href="#">Strategy</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="sidebar--widget">
-						<div class="sidebar--widget__content">
-							<h3>Latest articles</h3>
-							<ul>
-								<li><a href="#">The March selection of our readers.</a></li>
-								<li><a href="#">St-Valentin Top 10 books.</a></li>
-								<li><a href="#">Some random article about litterature and romance.</a></li>
-							</ul>
-						</div>
-					</div>
+					<?php dynamic_sidebar('blog-sidebar'); ?>
 				</div>
 			</div>
 			<!-- END SIDEBAR -->
 		</div>
 	</div>
 	<!-- BLOG -->
-	<div id="bks-blog" class="related-posts">
+	<div id="bks-blog">
 		<div class="wrapper">
 			<div class="bks-title-box">
-				<h1>People have also read</h1>
-				<a href="#" title="Articles" class="bks-link">&gt; all articles</a>
+				<h1>Latest news</h1>
+				<a href="{{ get_permalink($newspage->ID) }}" title="Articles" class="bks-link">&gt; all articles</a>
 			</div>
 			<div class="bks-home-blog">
 				<ul>
-					<li>
-						<article class="home-article">
-							<h5>3 March 2014</h5>
-							<h2>The March selection of our readers.</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla ipsum nunc, vel aliquam arcu egestas ut. Proin congue nisl nunc, vitae feugiat enim tempor non.</p>
-							<div class="link-box">
-								<a href="#" class="tiny-button yellow" title="Read more">Read more</a>
-							</div>
-						</article>
-					</li>
-					<li class="last">
-						<article class="home-article">
-							<h5>14 February 2014</h5>
-							<h2>Top 10 of romance litterature.</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla ipsum nunc, vel aliquam arcu egestas ut. Proin congue nisl nunc, vitae feugiat enim tempor non.</p>
-							<div class="link-box">
-								<a href="#" class="tiny-button yellow" title="Read more">Read more</a>
-							</div>
-						</article>
-					</li>
+					<?php
+						$modulo = 2;
+					?>
+					@foreach($news as $i => $article)
+						<li <?php if(1 == $i % $modulo){ echo('class="last"'); } ?>>
+							<article class="home-article">
+								<h5>{{ get_post_time('j F Y', true, $article->ID) }}</h5>
+								<h2>{{ $article->post_title }}</h2>
+								<p>{{ $article->post_excerpt }}</p>
+								<div class="link-box">
+									<a href="{{ get_permalink($article->ID) }}" class="tiny-button yellow" title="Read more">Read more</a>
+								</div>
+							</article>
+						</li>
+					@endforeach
 				</ul>
 			</div>
 		</div>

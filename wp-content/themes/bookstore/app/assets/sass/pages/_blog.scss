@@ -92,12 +92,41 @@
 				}
 
 				.article--navigation{
-					.prev-button {
+
+					a[rel="prev"]{
 						float: left;
+						display: inline-block;
+						background-color: $main-color;
+						@include border-radius(8px, 8px);
+						color: $dark-color;
+						padding: 0.8em 1.4em;
+						text-decoration: none;
+						@include font-size(17);
+						font-weight: 600;
+						text-transform: uppercase;
 					}
 
-					.next-button{
+					a[rel="prev"]:hover{
+						background-color: $dark-color;
+						color: #ffffff;
+					}
+
+					a[rel="next"]{
 						float: right;
+						display: inline-block;
+						background-color: $main-color;
+						@include border-radius(8px, 8px);
+						color: $dark-color;
+						padding: 0.8em 1.4em;
+						text-decoration: none;
+						@include font-size(17);
+						font-weight: 600;
+						text-transform: uppercase;
+					}
+
+					a[rel="next"]:hover{
+						background-color: $dark-color;
+						color: #ffffff;
 					}
 				}
 			}

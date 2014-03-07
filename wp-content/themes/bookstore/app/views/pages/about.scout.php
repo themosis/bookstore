@@ -46,7 +46,7 @@
 							<article class="home-article">
 								<h5>{{ get_post_time('j F Y', true, $article->ID) }}</h5>
 								<h2>{{ $article->post_title }}</h2>
-								<p>{{ implode(' ', array_slice(explode(' ', strip_tags($article->post_content)), 0, 20)) }}...</p>
+								<p>{{ $article->post_excerpt }}</p>
 								<div class="link-box">
 									<a href="{{ get_permalink($article->ID) }}" class="tiny-button yellow" title="Read more">Read more</a>
 								</div>
