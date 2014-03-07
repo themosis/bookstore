@@ -1,16 +1,16 @@
 @include('header')
 
 	<!-- BOOK PROMO -->
-	<div id="bks-promo">
+	<div id="bks-promo" style="background-color: {{ Meta::get($book->ID, 'color') }};">
 		<div class="wrapper">
 			<div class="promo-wrapper">
 				<div class="promo-container">
-					<h1>Sass for web designers</h1>
-					<h5>By Dan Cederholm</h5>
+					<h1>{{ $book->post_title }}</h1>
+					<h5>By {{ Meta::get($book->ID, 'author') }}</h5>
 					<a href="#" class="big-button">Buy book</a>
 				</div>
 				<div class="promo-media">
-					<img src="<?php echo(themosisAssets()); ?>/images/book001.png" alt="Demo Book" width="399" height="435">
+					<img src="{{ Meta::get($book->ID, 'promo-image') }}" alt="Demo Book" width="399" height="435">
 				</div>
 			</div>
 		</div>
@@ -23,7 +23,7 @@
 				<h1>Content</h1>
 			</div>
 			<div id="book--content">
-				<p>Sed tincidunt consequat iaculis. Nullam et sem ut purus feugiat malesuada in vitae velit. Quisque nisi lacus, consectetur non bibendum sollicitudin, consequat ac odio. Aliquam placerat blandit dignissim. Morbi semper, felis id tempor mollis, lacus erat tincidunt tortor, id tempus enim erat non tellus. Pellentesque euismod felis et tincidunt lacinia. Nulla eu libero eu turpis vestibulum imperdiet. Nulla accumsan aliquam sagittis. Nam iaculis diam luctus condimentum suscipit. In non massa sit amet nisi lobortis ullamcorper. Aenean nisi ante, tristique at gravida consequat, posuere nec mi. Ut arcu odio, imperdiet et nisl et, porta sollicitudin lectus. Suspendisse potenti. Phasellus adipiscing, turpis non lobortis vestibulum, sapien lorem porttitor elit, eget laoreet orci erat sed sapien.</p>
+				{{ apply_filters('the_content', $book->post_content) }}
 			</div>
 		</div>
 	</div>
@@ -35,42 +35,21 @@
 		</div>
 		<div id="popular-container">
 			<ul class="books">
-				<li>
-					<div class="book">
-						<h3>Design is a job</h3>
-						<a href="#" class="book-featured-box">
-							<img src="<?php echo(themosisAssets()); ?>/images/book001.jpg" alt="Book featured image" width="266" height="146">
-						</a>
-						<p>Co-founder of Mule Design and raconteur Mike Monteiro wants to help you do your job better.</p>
-						<div class="button-box">
-							<a href="#" class="tiny-button">Buy</a>
+			<?php $modulo = 3; ?>
+				@foreach($books as $i => $b)
+					<li <?php if($modulo - 1 == $i % $modulo) { echo('class="last"'); } ?>>
+						<div class="book">
+							<h3>{{ $b->title }}</h3>
+							<a href="#" class="book-featured-box" style="background-color: {{ $b->color }};">
+								<img src="{{ $b->image }}" alt="{{ $b->title }}" width="266" height="146">
+							</a>
+							<p>{{ $b->excerpt }}</p>
+							<div class="button-box">
+								<a href="{{ $b->link }}" class="tiny-button">Buy</a>
+							</div>
 						</div>
-					</div>
-				</li>
-				<li>
-					<div class="book">
-						<h3>The elements of content strategy</h3>
-						<a href="#" class="book-featured-box">
-							<img src="<?php echo(themosisAssets()); ?>/images/book002.jpg" alt="Book featured image" width="266" height="146">
-						</a>
-						<p>Co-founder of Mule Design and raconteur Mike Monteiro wants to help you do your job better.</p>
-						<div class="button-box">
-							<a href="#" class="tiny-button">Buy</a>
-						</div>
-					</div>
-				</li>
-				<li class="last">
-					<div class="book">
-						<h3>HTML5 for web designers</h3>
-						<a href="#" class="book-featured-box">
-							<img src="<?php echo(themosisAssets()); ?>/images/book003.jpg" alt="Book featured image" width="266" height="146">
-						</a>
-						<p>Co-founder of Mule Design and raconteur Mike Monteiro wants to help you do your job better.</p>
-						<div class="button-box">
-							<a href="#" class="tiny-button">Buy</a>
-						</div>
-					</div>
-				</li>
+					</li>
+				@endforeach
 			</ul>
 		</div>
 	</div>

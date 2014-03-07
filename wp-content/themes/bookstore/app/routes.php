@@ -15,11 +15,7 @@ Route::is('front', 'home@index');
 Route::only('postTypeArchive', 'bks-books', 'books@index');
 
 // Single book page
-Route::only('singular', 'bks-books', function(){
-
-	return View::make('pages.book');
-
-});
+Route::only('singular', 'bks-books', 'book@index');
 
 // About page
 Route::only('page', 'about', 'about@index');
