@@ -93,6 +93,14 @@ header{
 				color: $dark-color;
 			}
 		}
+
+		.current-menu-item{
+			a, a:link, a:visited, a:active, a:hover{
+				background-color: $main-color;
+				@include border-radius(18px, 18px);
+				color: $dark-color;
+			}
+		}
 	}
 }
 
