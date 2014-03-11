@@ -100,6 +100,27 @@ class Books_Model extends BaseModel{
 
 	}
 
+	/**
+	 * Return all books.
+	 * 
+	 * @return array An array of WP_Posts objects.
+	*/
+	public static function all(){
+
+		$query = new WP_Query(array(
+
+			'post_type' 		=> 'bks-books',
+			'posts_per_page'	=> -1,
+			'post_status'		=> 'publish'
+
+			));
+
+		$results = $query->get_posts();
+
+		return $results;
+
+	}
+
 }
 
 ?>
