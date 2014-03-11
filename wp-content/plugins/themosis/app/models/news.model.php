@@ -7,7 +7,7 @@ class News_Model extends BaseModel{
 	 * 
 	 * @return array Array of WP_Posts objects.
 	*/
-	public static function getNews(){
+	public static function get(){
 
 		$query = new WP_Query(array(
 

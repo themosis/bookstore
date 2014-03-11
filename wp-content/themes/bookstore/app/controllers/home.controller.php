@@ -31,7 +31,7 @@ class Home_Controller{
 
 			'promo' 	=> Books::getPromoBook($this->page),
 			'books' 	=> Books::getPopularBooks($this->bookId),
-			'news'		=> News::getNews(),
+			'news'		=> News::get(),
 			'newspage'	=> get_page_by_path('news')
 
 		));

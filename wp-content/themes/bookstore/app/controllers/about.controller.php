@@ -19,7 +19,7 @@ class About_Controller{
 
 			'page'		=> $this->page,
 			'members'	=> Meta::get($this->page->ID, 'collaborators'),
-			'news'		=> News::getNews(),
+			'news'		=> News::get(),
 			'newspage'	=> get_page_by_path('news')
 
 		));

@@ -35,19 +35,9 @@ Route::only('singular', 'post', function(){
 
 	global $post;
 
-	// Get latest news
-	$query = new WP_Query(array(
-
-		'post_type' 		=> 'post',
-		'posts_per_page'	=> 2
-
-	));
-
-	$results = $query->get_posts();
-
 	return View::make('blog.post', array(
 		'article'	=> $post,
-		'news'		=> $results,
+		'news'		=> News::get(),
 		'newspage'	=> get_page_by_path('news')
 	));
 
