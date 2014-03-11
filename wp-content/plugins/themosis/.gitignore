@@ -1,10 +1,1 @@
-/.DS_Store
-.idea
-/app/admin/backbone.php
-/app/admin/books.php
-/app/admin/galerie.php
-/app/admin/theme.php
-/app/admin/users.php
-/app/widgets/CallToAction.php
-
-*.model.php
+.DS_Store
