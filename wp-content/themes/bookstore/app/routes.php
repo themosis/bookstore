@@ -4,7 +4,7 @@
 * Define your routes and which views to display
 * depending of the query.
 *
-* Based on WordPress conditional tags from the WordPress Codex
+* Based on Wordpress conditional tags from the Wordpress Codex
 * http://codex.wordpress.org/Conditional_Tags 
 *
 */

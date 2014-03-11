@@ -1,19 +1,14 @@
 <?php
 /*
- * Themosis - A framework for WordPress developers.
+ * Themosis - A PHP framework for WordPress developers.
+ * Based on php 5.3.3 features and above.
  *
- * @author   	Julien Lambé <julien@jlambe.be>
- * @link     	http://www.jlambe.be/
+ * @author  Julien Lambé <julien@jlambe.be>
+ * @link 	http://www.jlambe.be/
  */ 
-/**
-/*----------------------------------------------------
-| Define some globals used along the theme.
-|
-|
-|
-|
-|
-|---------------------------------------------------*/
+/*----------------------------------------------------*/
+// Define some globals used along the theme.
+/*---------------------------------------------------*/
 // The directory separator
 defined('DS') ? DS : define('DS', '/');
 
@@ -74,12 +69,12 @@ if (!class_exists('THFWK_ThemosisTheme')) {
     	*/
     	public function check()
     	{   
-    	    $dataPlugin = class_exists('THFWK_ThemosisDatas');
+    	    $themosis = class_exists('THFWK_Themosis');
     	           	    
-        	$this->pluginsAreLoaded = $dataPlugin;
+        	$this->pluginsAreLoaded = $themosis;
         	
         	// Display a message to the user in the admin panel when he's activating the theme.
-        	if (!$dataPlugin) {
+        	if (!$themosis) {
             	add_action('admin_notices', array(&$this, 'displayMessage'));
         	}
     	}
@@ -93,7 +88,7 @@ if (!class_exists('THFWK_ThemosisTheme')) {
     	{
     		?>
     		    <div id="message" class="error">
-                    <p><?php _e("You first need to activate the <b>Themosis</b> (core) and <b>Themosis - Datas</b> plugins in order to use this theme.", THEMOSISTHEME_TEXTDOMAIN); ?></p>
+                    <p><?php _e("You first need to activate the <b>Themosis</b> plugin in order to use this theme.", THEMOSISTHEME_TEXTDOMAIN); ?></p>
                 </div>
     		<?php
     	}
@@ -191,7 +186,7 @@ function themosis_start_app(){
     	do_action('themosis_render');   
 	} else {
     	
-        _e("The theme won't work correctly until you install the core and datas plugins.", THEMOSISTHEME_TEXTDOMAIN);
+        _e("The theme won't work correctly until you install the themosis plugin.", THEMOSISTHEME_TEXTDOMAIN);
     	
 	}
 }

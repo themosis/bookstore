@@ -9,7 +9,7 @@ return array(
 	* Simply define a template slug.
 	*/
 
-	'one-column',
+	'custom-template'
 
 );
 

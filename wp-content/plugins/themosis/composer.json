@@ -1,0 +1,11 @@
+{
+	"autoload": {
+        "psr-0": {
+        	"Themosis": "src/"
+        }
+    },
+
+    "require": {
+    	"symfony/http-foundation": "2.4.2"
+    }
+}
