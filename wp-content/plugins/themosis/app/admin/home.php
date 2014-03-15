@@ -5,17 +5,20 @@
 /*-----------------------------------------------------------------------*/
 $home = get_page_by_path('home');
 
-if (themosisIsPost($home->ID)) {
-	
-	/*-----------------------------------------------------------------------*/
-	// PROMO METABOX
-	/*-----------------------------------------------------------------------*/
-	Metabox::make('Book promo', 'page')->set(array(
+add_action('admin_init', function() use($home){
 
-		Field::select('book-promo', array(bks_getPromoBooks()), false, array('title' => 'Book', 'info' => 'Choose the book you want to promote on the home page.'))
+	if (themosisIsPost($home->ID)) {		
+		
+		/*-----------------------------------------------------------------------*/
+		// PROMO METABOX
+		/*-----------------------------------------------------------------------*/
+		Metabox::make('Book promo', 'page')->set(array(
 
-	));
-}
+			Field::select('book-promo', array(Books::adminPromoBooks()), false, array('title' => 'Book', 'info' => 'Choose the book you want to promote on the home page.'))
+
+		));
+	}
+});
 
 add_action('init', function() use ($home){
 

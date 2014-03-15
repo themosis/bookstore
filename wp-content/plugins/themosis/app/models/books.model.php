@@ -121,6 +121,24 @@ class Books_Model extends BaseModel{
 
 	}
 
+	/**
+	 * Return books for promo custom field
+	 * situated in the admin home page.
+	 * 
+	 * @return array key=post_id, value=post_title
+	*/
+	public static function adminPromoBooks(){
+
+		$books = array();
+
+		foreach (static::all() as $book) {
+			$books[$book->ID] = $book->post_title;
+		}
+
+		return $books;
+
+	}
+
 }
 
 ?>

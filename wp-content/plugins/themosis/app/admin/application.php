@@ -39,33 +39,6 @@ add_filter('image_size_names_choose', function($mediaSizes){
 });
 
 /*-----------------------------------------------------------------------*/
-// HELPERS
-/*-----------------------------------------------------------------------*/
-function bks_getPromoBooks(){
-
-	$books = array(
-		'none'	=> 'None'
-	);
-
-	$query = new WP_Query(array(
-		'post_type' 		=> 'bks-books',
-		'posts_per_page' 	=> -1,
-		'post_status'		=> 'publish'
-	));
-
-	$results = $query->get_posts();
-
-	foreach ($results as $book) {
-		
-		$books[$book->ID] = $book->post_title;
-
-	}
-
-	return $books;
-
-}
-
-/*-----------------------------------------------------------------------*/
 // FILTER SEARCH RESULTS
 /*-----------------------------------------------------------------------*/
 function bks_searchfilter($query) {
