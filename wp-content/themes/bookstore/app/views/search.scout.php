@@ -24,13 +24,9 @@
 					<?php $i++; ?>
 				@endloop
 			</ul>
-			<?php
-			if(!have_posts()){
-				?>
+			@if(!have_posts())
 				<h2>Sorry, but we don't find any books related to: "{{ $_GET['s'] }}"</h2>
-				<?php
-			}
-			?>
+			@endif
 		</div>
 	</div>
 	<!-- END BOOKS COLLECTION -->
