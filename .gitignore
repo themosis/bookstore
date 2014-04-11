@@ -1,6 +1,5 @@
 .htaccess
 wp-config.php
 wp-config-local.php
-wp-content/uploads
 wp-content/themes/bookstore/app/assets/node_modules
 wp-content/themes/bookstore/app/assets/.sass-cache
