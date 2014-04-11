@@ -3,3 +3,6 @@ wp-config.php
 wp-config-local.php
 wp-content/themes/bookstore/app/assets/node_modules
 wp-content/themes/bookstore/app/assets/.sass-cache
+/.idea/
+
+/wp-content/plugins/wordpress-importer/

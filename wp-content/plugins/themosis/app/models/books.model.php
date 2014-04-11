@@ -14,11 +14,18 @@ class Books_Model extends BaseModel{
 
 		$book = new stdClass();
 
+        // Define default values
+        $book->title = '';
+        $book->author = '';
+        $book->image = '';
+        $book->color = '';
+        $book->link = '';
+
 		// Get the book ID
 		$id = Meta::get($page->ID, 'book-promo');
 
 		// Handle the case where a book is selected.
-		if('none' !== $id){
+		if(!empty($id) && 'none' !== $id){
 
 			$query = new WP_Query(array(
 				'post_type'		=> 'bks-books',

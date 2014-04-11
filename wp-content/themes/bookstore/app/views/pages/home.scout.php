@@ -50,7 +50,9 @@
 		<div class="wrapper">
 			<div class="bks-title-box">
 				<h1>Latest news</h1>
-				<a href="{{ get_permalink($newspage->ID) }}" title="Articles" class="bks-link">&gt; all articles</a>
+                @if(!empty($newspage))
+				    <a href="{{ get_permalink($newspage->ID) }}" title="Articles" class="bks-link">&gt; all articles</a>
+                @endif
 			</div>
 			<div class="bks-home-blog">
 				<ul>

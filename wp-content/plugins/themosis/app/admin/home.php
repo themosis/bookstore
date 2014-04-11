@@ -7,7 +7,7 @@ $home = get_page_by_path('home');
 
 add_action('admin_init', function() use($home){
 
-	if (themosisIsPost($home->ID)) {		
+	if (!empty($home) && themosisIsPost($home->ID)) {
 		
 		/*-----------------------------------------------------------------------*/
 		// PROMO METABOX
@@ -22,7 +22,7 @@ add_action('admin_init', function() use($home){
 
 add_action('init', function() use ($home){
 
-	if (themosisIsPost($home->ID)) {
+	if (!empty($home) && themosisIsPost($home->ID)) {
 		remove_post_type_support('page', 'editor');
 	}
 

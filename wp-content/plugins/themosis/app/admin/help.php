@@ -4,7 +4,7 @@
 /*-----------------------------------------------------------------------*/
 $help = get_page_by_path('help');
 
-if (themosisIsPost($help->ID)) {
+if (!empty($help) && themosisIsPost($help->ID)) {
 
 	/*-----------------------------------------------------------------------*/
 	// TEAM METABOX
@@ -19,7 +19,7 @@ if (themosisIsPost($help->ID)) {
 
 add_action('init', function() use ($help){
 
-	if (themosisIsPost($help->ID)) {
+	if (!empty($help) && themosisIsPost($help->ID)) {
 		remove_post_type_support('page', 'editor');
 	}
 
