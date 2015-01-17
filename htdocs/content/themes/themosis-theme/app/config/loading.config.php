@@ -14,6 +14,7 @@ return array(
 
     // Models
     'PostModel'             => themosis_path('app').'models'.DS.'PostModel.php',
+    'Books'                 => themosis_path('app').'models'.DS.'Books.php'
 
     // Miscellaneous
 

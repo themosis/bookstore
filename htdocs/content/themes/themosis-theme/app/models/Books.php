@@ -1,7 +1,7 @@
 <?php 
 
-class Books_Model extends BaseModel{
-
+class Books
+{
 	/**
 	 * Fetch the promotional book and returns
 	 * an object with associated datas. Used for
@@ -63,48 +63,38 @@ class Books_Model extends BaseModel{
 	 * @param int ID of a book to ignore for cross references.
 	 * @return array
 	*/
-	public static function getPopularBooks($id){
-
+	public static function getPopularBooks($id)
+	{
 		$books = array();
 
 		$query = new WP_Query(array(
-
 			'post_type' => 'bks-books',
 			'posts_per_page' => 3,
 			'post__not_in'	=> array($id),
 			'post_status'	=> 'publish',
 			'orderby'		=> 'rand'
-
 		));
 
 		$results = $query->get_posts();
 
-		foreach($results as $book){
-
+		foreach ($results as $book)
+		{
 			$b = new stdClass();
-
 			// Title
 			$b->title = $book->post_title;
-
 			// Featured image
 			$b->image = Meta::get($book->ID, 'book-feature');
-
 			// Color
 			$b->color = Meta::get($book->ID, 'color');
-
 			// Excerpt
 			$b->excerpt = $book->post_excerpt;
-
 			// Permalink
 			$b->link = get_permalink($book->ID);
-
 			// Add the book object
 			$books[] = $b;
-
 		}
 
 		return $books;
-
 	}
 
 	/**
@@ -112,40 +102,35 @@ class Books_Model extends BaseModel{
 	 * 
 	 * @return array An array of WP_Posts objects.
 	*/
-	public static function all(){
-
+	public static function all()
+	{
 		$query = new WP_Query(array(
-
 			'post_type' 		=> 'bks-books',
 			'posts_per_page'	=> -1,
 			'post_status'		=> 'publish'
-
-			));
+		));
 
 		$results = $query->get_posts();
 
 		return $results;
-
 	}
 
 	/**
 	 * Return books for promo custom field
-	 * situated in the admin home page.
+	 * located in the admin home page.
 	 * 
-	 * @return array key=post_id, value=post_title
+	 * @return array
 	*/
-	public static function adminPromoBooks(){
-
+	public static function published()
+	{
 		$books = array();
 
-		foreach (static::all() as $book) {
+		foreach (static::all() as $book)
+		{
 			$books[$book->ID] = $book->post_title;
 		}
 
 		return $books;
-
 	}
 
 }
-
-?>
