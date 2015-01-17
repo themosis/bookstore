@@ -17,8 +17,6 @@ composer.lock
 /htdocs/content/upgrade/
 /old-bookstore/
 /old-themosis/
-wp-config.php
 
 ### Environment Credentials
 .env.*.php
-!.env.local.php
