@@ -1,0 +1,43 @@
+{
+	"name": "themosis/themosis",
+	"description": "The Themosis framework. A framework for WordPress developers.",
+	"keywords": ["themosis", "framework", "WordPress"],
+	"license": "GPL-2.0+",
+	"authors": [
+		{
+			"name": "Julien Lambé",
+			"email": "julien@themosis.com",
+			"homepage": "http://www.themosis.com/"
+		}
+	],
+	"type": "project",
+	"repositories":[
+		{
+			"type": "composer",
+			"url": "http://wpackagist.org"
+		}
+	],
+	"autoload": {
+		"psr-0": {
+			"Thms": "library"
+		}
+	},
+	"config": {
+		"preferred-install": "dist"
+	},
+	"require": {
+		"php": ">=5.4",
+		"johnpbloch/wordpress": ">=4.1",
+		"themosis/framework": "1.1.*",
+		"themosis/theme": "1.1.*"
+	},
+	"extra":{
+		"installer-paths":{
+			"htdocs/content/mu-plugins/themosis-{$name}/": ["themosis/framework"],
+			"htdocs/content/plugins/{$name}/": ["type:wordpress-plugin"],
+			"htdocs/content/themes/themosis-{$name}/": ["themosis/theme"],
+			"htdocs/content/themes/{$name}/": ["type:wordpress-theme"]
+		},
+		"wordpress-install-dir": "htdocs/cms"
+	}
+}
