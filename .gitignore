@@ -17,8 +17,6 @@ composer.lock
 /htdocs/content/uploads/
 /htdocs/content/upgrade/
 /htdocs/content/languages/
-/old-bookstore/
-/old-themosis/
 
 ### Environment Credentials
 .env.*.php

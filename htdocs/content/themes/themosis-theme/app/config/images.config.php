@@ -15,6 +15,6 @@ return array(
      */
     'book-promo'            => array(399, 435, true, true),
     'book-features-image'   => array(266, 146, true, true),
-    'member-pic'            => array(104, 104, true, false)
+    'member-pic'            => array(104, 104, true, true)
 
 );
