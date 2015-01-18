@@ -8,12 +8,12 @@
 		<div id="books--collection">
 			<ul class="books">
 				<?php $modulo = 3; $i = 0; ?>
-				@loop(array('s' => $search))
+				@loop
 					<li <?php if($modulo - 1 == $i % $modulo ){ echo('class="last"'); } ?>>
 						<div class="book">
 							<h3>{{ Loop::title() }}</h3>
 							<a href="{{ Loop::link() }}" class="book-featured-box" style="background-color: {{ Meta::get(Loop::id(), 'color') }};">
-								<img src="{{ Meta::get(Loop::id(), 'book-feature') }}" alt="{{ Loop::title() }}" width="266" height="146">
+								{{ Loop::thumbnail() }}
 							</a>
 							<p>{{ Loop::excerpt() }}</p>
 							<div class="button-box">
@@ -25,7 +25,7 @@
 				@endloop
 			</ul>
 			@if(!have_posts())
-				<h2>Sorry, but we don't find any books related to: "{{ $_GET['s'] }}"</h2>
+				<h2>Sorry, but we don't find any books related to: "{{ Input::get('s') }}"</h2>
 			@endif
 		</div>
 	</div>

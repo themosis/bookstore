@@ -39,5 +39,5 @@ Route::get('singular', array('post', function()
 // Search page
 Route::get('search', function()
 {
-    return View::make('search', array('search' => $_GET['s']));
+    return View::make('search');
 });

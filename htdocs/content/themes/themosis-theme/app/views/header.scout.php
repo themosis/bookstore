@@ -31,9 +31,9 @@
                 <div id="search--form">
                     <div id="search--form__icon"></div>
                     <div id="search--form__form">
-                        <form class="searchform" action="/" method="get" role="search">
-                            <input id="s" placeholder="Search book" type="text" name="s" value=""></input>
-                        </form>
+                        {{ Form::open('', 'get', false, array('class' => 'searchform', 'role' => 'search')) }}
+                            {{ Form::text('s', '', array('id' => 's', 'placeholder' => 'Search a book...')) }}
+                        {{ Form::close() }}
                     </div>
                 </div>
             </div>
