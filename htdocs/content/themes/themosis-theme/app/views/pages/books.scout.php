@@ -14,6 +14,7 @@
 
 				@if($books->have_posts())
 					@while($books->have_posts())
+						<?php $books->the_post(); ?>
 						<li <?php if($modulo - 1 == $i % $modulo ){ echo('class="last"'); } ?>>
 							<div class="book">
 								<h3>{{ Loop::title() }}</h3>
@@ -26,6 +27,9 @@
 								</div>
 							</div>
 						</li>
+						<?php
+							$i++;
+						?>
 					@endwhile
 				@endif
 			</ul>
