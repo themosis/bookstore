@@ -8,7 +8,7 @@
 		<div id="news" class="clearfix">
 			<!-- ARTICLES -->
 			<div id="news--articles">
-				@loop(array('post_type' => 'post'))
+				@loop
 					<article>
 						<div class="article--date">
 							<span>{{ get_the_date('j F Y') }}</span>

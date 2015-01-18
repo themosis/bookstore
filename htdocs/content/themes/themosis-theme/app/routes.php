@@ -24,20 +24,16 @@ Route::get('page', array('about', 'uses' => 'PagesController@about'));
 // Help page
 Route::get('page', array('help', 'uses' => 'PagesController@help'));
 
-// News page or the WordPress 'home' page
+// News/blog page
 Route::get('home', function()
 {
     return View::make('blog.news');
 });
 
 // Single post
-Route::get('singular', array('post', function($post)
+Route::get('singular', array('post', function()
 {
-    return View::make('blog.post', array(
-        'article'	=> $post,
-        'news'		=> News::get(),
-        'newspage'	=> get_page_by_path('news')
-    ));
+    return View::make('blog.post');
 }));
 
 // Search page

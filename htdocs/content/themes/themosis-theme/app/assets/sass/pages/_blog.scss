@@ -66,10 +66,11 @@
 				a, a:link, a:visited, a:active{
 					color: $dark-color;
 					margin-top: 2em;
+				  	text-decoration: underline;
 				}
 
 				a:hover{
-					color: #ffffff;
+					text-decoration: none;
 				}
 			}
 		}

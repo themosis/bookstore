@@ -4,7 +4,7 @@
 		<div id="news" class="clearfix">
 			<!-- ARTICLES -->
 			<div id="news--articles">
-				@loop(array('p' => $article->ID))
+				@loop
 					<article class="single-article">
 						<div class="article--date">
 							<span>{{ get_the_date('d F Y') }}</span>
@@ -34,33 +34,7 @@
 		</div>
 	</div>
 	<!-- BLOG -->
-	<div id="bks-blog">
-		<div class="wrapper">
-			<div class="bks-title-box">
-				<h1>Latest news</h1>
-				<a href="{{ get_permalink($newspage->ID) }}" title="Articles" class="bks-link">&gt; all articles</a>
-			</div>
-			<div class="bks-home-blog">
-				<ul>
-					<?php
-						$modulo = 2;
-					?>
-					@foreach($news as $i => $article)
-						<li <?php if(1 == $i % $modulo){ echo('class="last"'); } ?>>
-							<article class="home-article">
-								<h5>{{ get_post_time('j F Y', true, $article->ID) }}</h5>
-								<h2>{{ $article->post_title }}</h2>
-								<p>{{ $article->post_excerpt }}</p>
-								<div class="link-box">
-									<a href="{{ get_permalink($article->ID) }}" class="tiny-button yellow" title="Read more">Read more</a>
-								</div>
-							</article>
-						</li>
-					@endforeach
-				</ul>
-			</div>
-		</div>
-	</div>
+	@include('blog.latest')
 	<!-- END BLOG -->
 
 @include('footer')

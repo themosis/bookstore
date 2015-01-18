@@ -35,7 +35,7 @@ body{
 	@include border-radius(8px, 8px);
 	color: #ffffff;
 	padding: 0.8em 1.4em;
-	text-decoration: none;
+	text-decoration: none !important;
 	@include font-size(17);
 	font-weight: 600;
 	text-transform: uppercase;
