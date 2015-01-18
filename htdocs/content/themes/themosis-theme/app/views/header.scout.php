@@ -32,7 +32,7 @@
                     <div id="search--form__icon"></div>
                     <div id="search--form__form">
                         {{ Form::open(home_url(), 'get', false, array('class' => 'searchform', 'role' => 'search')) }}
-                            {{ Form::text('s', '', array('id' => 's', 'placeholder' => 'Search a book...')) }}
+                            {{ Form::text('s', '', array('id' => 's', 'placeholder' => 'Search a book...', 'autocomplete' => 'off')) }}
                         {{ Form::close() }}
                     </div>
                 </div>
