@@ -23,4 +23,17 @@ class BooksController extends BaseController
 			'books'	=> $this->books->all()
 		));
 	}
+
+	/**
+	 * Render the single book request page.
+	 *
+	 * @param \WP_Post $post
+	 * @return mixed
+	 */
+	public function single($post)
+	{
+		return View::make('pages.book', array(
+			'books'		=> $this->books->getPopularBooks($post->ID)
+		));
+	}
 }

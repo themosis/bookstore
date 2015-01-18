@@ -16,7 +16,7 @@ Route::get('front', 'PagesController@home');
 Route::get('postTypeArchive', array('bks-books', 'uses' => 'BooksController@archive'));
 
 // Single book page
-Route::get('singular', array('bks-books', 'uses' => 'book@index'));
+Route::get('singular', array('bks-books', 'uses' => 'BooksController@single'));
 
 // About page
 Route::get('page', array('about', 'uses' => 'about@index'));
