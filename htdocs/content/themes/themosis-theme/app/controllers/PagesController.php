@@ -9,9 +9,17 @@ class PagesController extends BaseController
      */
     protected $books;
 
+    /**
+     * A faqs model instance.
+     *
+     * @var
+     */
+    protected $faqs;
+
     public function __construct()
     {
         $this->books = new Books();
+        $this->faqs = new Faqs();
     }
 
     /**
@@ -41,6 +49,18 @@ class PagesController extends BaseController
     {
         return View::make('pages.about', array(
             'members'	=> Meta::get($post->ID, 'collaborators')
+        ));
+    }
+
+    /**
+     * Handle the help page request.
+     *
+     * @return mixed
+     */
+    public function help()
+    {
+        return View::make('pages.help', array(
+            'faqs'		=> $this->faqs->all()
         ));
     }
 }
