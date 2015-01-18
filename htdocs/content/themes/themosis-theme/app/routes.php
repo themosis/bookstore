@@ -19,7 +19,7 @@ Route::get('postTypeArchive', array('bks-books', 'uses' => 'BooksController@arch
 Route::get('singular', array('bks-books', 'uses' => 'BooksController@single'));
 
 // About page
-Route::get('page', array('about', 'uses' => 'about@index'));
+Route::get('page', array('about', 'uses' => 'PagesController@about'));
 
 // Help page
 Route::get('page', array('help', 'uses' => 'help@index'));
