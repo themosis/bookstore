@@ -1,7 +1,7 @@
 	<footer>
 		<div class="wrapper">
 			<div class="footer--copyright">
-				<p>&copy; Copyright Bookstore <?php echo(date('Y')); ?></p>
+				<p>&copy; Copyright Bookstore {{ date('Y') }}</p>
 			</div>
 			<div class="footer--navigation">
 				<?php 

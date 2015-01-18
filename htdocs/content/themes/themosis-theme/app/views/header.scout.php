@@ -4,11 +4,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title><?php wp_title(); ?></title>
-        <meta name="description" content="">
+        <meta name="description" content="A bookstore company.">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <!-- Place favicon.ico and apple-touch-icon(s) in the root directory -->
-
         <?php wp_head(); ?>
     </head>
     <body>
@@ -17,8 +14,8 @@
         <![endif]-->
         <header>
             <div id="bookstore-logo">
-                <a href="<?php echo(home_url()); ?>">
-                    <img src="<?php echo(themosisAssets()); ?>/images/logo.png" alt="Bookstore" width="154" height="40">
+                <a href="{{ home_url() }}">
+                    <img src="{{ themosis_assets() }}/images/logo.png" alt="Bookstore" width="154" height="40">
                 </a>
             </div>
             <div id="bookstore-navigation">

@@ -10,7 +10,7 @@
  */
 
 // The front page
-Route::get('front', 'home@index');
+Route::get('front', 'PagesController@home');
 
 // The books page
 Route::get('postTypeArchive', array('bks-books', 'uses' => 'books@index'));
