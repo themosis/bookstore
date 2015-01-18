@@ -31,7 +31,7 @@
                 <div id="search--form">
                     <div id="search--form__icon"></div>
                     <div id="search--form__form">
-                        {{ Form::open('', 'get', false, array('class' => 'searchform', 'role' => 'search')) }}
+                        {{ Form::open(home_url(), 'get', false, array('class' => 'searchform', 'role' => 'search')) }}
                             {{ Form::text('s', '', array('id' => 's', 'placeholder' => 'Search a book...')) }}
                         {{ Form::close() }}
                     </div>
