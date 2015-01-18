@@ -5,6 +5,7 @@
 /*-----------------------------------------------------------------------*/
 $books = PostType::make('bks-books', 'Books', 'Book')->set(array(
 
+    'public'    => true,
     'rewrite'   => array(
         'slug'      => 'books'
     ),

@@ -110,7 +110,7 @@ class Books
 	/**
 	 * Return all books.
 	 * 
-	 * @return array An array of WP_Posts objects.
+	 * @return \WP_Query
 	*/
 	public function all()
 	{
@@ -120,9 +120,7 @@ class Books
 			'post_status'		=> 'publish'
 		));
 
-		$results = $query->get_posts();
-
-		return $results;
+		return $query;
 	}
 
 	/**
@@ -135,7 +133,9 @@ class Books
 	{
 		$books = array();
 
-		foreach ($this->all() as $book)
+		$all = $this->all();
+
+		foreach ($all->get_posts() as $book)
 		{
 			$books[$book->ID] = $book->post_title;
 		}
