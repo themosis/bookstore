@@ -11,9 +11,9 @@ vendor/
 .idea/
 
 ### Wordpress
-htdocs/cms
-htdocs/content/mu-plugins/themosis-framework
-htdocs/content/themes/themosis-theme
+htdocs/cms/
+htdocs/content/mu-plugins/themosis-framework/
+htdocs/content/themes/themosis-theme/
 htdocs/content/upgrade/
 htdocs/content/languages/
 
