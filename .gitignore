@@ -5,20 +5,18 @@ Thumbs.db
 
 ### Composer
 composer.lock
-/vendor/
+vendor/
 
 ### IDE
 .idea/
 
 ### Wordpress
-/htdocs/cms/*
-!/htdocs/cms/.gitkeep
-/htdocs/content/mu-plugins/themosis-framework/
-/htdocs/content/uploads/
-/htdocs/content/upgrade/
-/htdocs/content/languages/
-/htdocs/content/themes/themosis-theme/app/assets/node_modules
-/htdocs/content/themes/themosis-theme/app/assets/.sass-cache
+htdocs/cms
+htdocs/content/mu-plugins/themosis-framework
+htdocs/content/themes/themosis-theme
+htdocs/content/upgrade/
+htdocs/content/languages/
 
 ### Environment Credentials
-.env.*.php
+.env.*
+!.env.local

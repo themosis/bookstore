@@ -1,26 +1,19 @@
-Themosis framework
-------------------
+Bookstore
+=========
 
-Themosis framework is a tool to help you develop websites and web applications faster using [WordPress](http://wordpress.org). Using an elegant and simple code syntax, Themosis framework helps you structure and organize your code and allows you to better manage and scale your WordPress websites and applications.
+The **Bookstore** is a sample project used to demonstrate best practices in developing a WordPress application or website using the Themosis framework.
 
-Themosis framework uses “modern” PHP features like anonymous functions, namespaces, is [Composer](https://getcomposer.org/) ready and is a mix between WordPress best practices and let’s say a typical MVC framework.
+The project shows to developers how to work with the APIs, how to configure and develop a custom plugin and handle the front-end output with a custom theme.
 
-The Themosis framework is born to give WordPress developers the development joy found in the [Laravel](http://laravel.com/) framework to WordPress development. As WordPress developers, you are happy by definition. Now with the Themosis framework you'll be happier and you'll be able to provide more features to your projects in less time.
+_Work in progress_
 
-## Official documentation
+Requirements
+------------
 
-The documentation is available on the Themosis framework website.
+- PHP >= 5.6.4
+- Themosis framework >= 1.3.0
 
----
+Installation
+------------
 
-### Development
-
-The framework was created by [Julien Lambé](http://www.themosis.com/), who continues to lead the development.
-
-### Contributing to Themosis
-
-All issues and pull requests should be filled on the [themosis/framework](https://github.com/themosis/framework/issues) repository.
-
-### License
-
-The Themosis framework is open-source software licensed under [GPL-2+ license](http://www.gnu.org/licenses/gpl-2.0.html).
+_Work in progress_
