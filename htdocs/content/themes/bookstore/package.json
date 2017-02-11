@@ -1,7 +1,7 @@
 {
-  "name": "themosis-theme",
-  "version": "1.0.0",
-  "description": "Themosis framework WordPress theme.",
+  "name": "themosis-bookstore",
+  "version": "1.3.0",
+  "description": "Themosis framework boostore demo project theme.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
