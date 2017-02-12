@@ -8,8 +8,8 @@
             <div class="promo-wrapper">
                 <div class="promo-container">
                     <h1>{{ promo.post_title }}</h1>
-                    <h5>By {{ fn.meta('author', promo.ID) }}</h5>
-                    <a href="{{ fn.get_permalink(promo.ID) }}" class="big-button">{{ _e("Buy book", THEME_TEXTDOMAIN) }}</a>
+                    <h5>{{ '%s %s'|format(__("By", THEME_TEXTDOMAIN), fn.meta('author', promo.ID)) }}</h5>
+                    <a href="{{ fn.get_permalink(promo.ID) }}" class="big-button">{{ __("Buy book", THEME_TEXTDOMAIN) }}</a>
                 </div>
                 <div class="promo-media">
                     <img src="{{ fn.wp_get_attachment_image_url(fn.meta('promo-image', promo.ID), 'book-promo') }}" alt="{{ promo.post_title }}" width="399" height="435">
@@ -19,11 +19,11 @@
     </div>
     <!-- End Book Promo -->
 
-    <!-- POPULAR -->
+    <!-- Popular -->
     <div id="popular-books" class="wrapper">
         <div class="bks-title-box">
             <h1>{{ __("Popular", THEME_TEXTDOMAIN) }}</h1>
-            <a href="{{ fn.get_post_type_archive_link(promo.post_type) }}" title="{{ _e("Books", THEME_TEXTDOMAIN) }}" class="bks-link">{{ _e("All Books", THEME_TEXTDOMAIN) }}</a>
+            <a href="{{ fn.get_post_type_archive_link(promo.post_type) }}" title="{{ __("Books", THEME_TEXTDOMAIN) }}" class="bks-link">{{ '> %s'|format(__("All Books", THEME_TEXTDOMAIN)) }}</a>
         </div>
         <div id="popular-container">
             <ul class="books">
@@ -43,7 +43,7 @@
                             {% endif %}
                             <p>{{ book.post_excerpt }}</p>
                             <div class="button-box">
-                                <a href="{{ fn.get_permalink(book.ID) }}" class="tiny-button">{{ _e("Buy", THEME_TEXTDOMAIN) }}</a>
+                                <a href="{{ fn.get_permalink(book.ID) }}" class="tiny-button">{{ __("Buy", THEME_TEXTDOMAIN) }}</a>
                             </div>
                         </div>
                     </li>
@@ -51,6 +51,8 @@
             </ul>
         </div>
     </div>
-    <!-- END POPULAR -->
+    <!-- End Popular -->
+
+    {% include 'twig/blog/latest.twig' %}
 
 {% endblock %}

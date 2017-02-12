@@ -1,0 +1,37 @@
+<div id="bks-blog">
+    <div class="wrapper">
+        <div class="bks-title-box">
+            <h1>{{ __("Latest news", THEME_TEXTDOMAIN) }}</h1>
+            {% if news_url is defined and news_url is not empty %}
+                <a href="{{ news_url }}" title="{{ __("All Articles", THEME_TEXTDOMAIN) }}" class="bks-link">{{ '> %s'|format(__("All Articles", THEME_TEXTDOMAIN)) }}</a>
+            {% endif %}
+        </div>
+        {% if latest_articles is defined %}
+            <div class="bks-blog-latest">
+                <ul>
+                    {% set modulo = 2 %}
+                    {% for i, post in latest_articles %}
+                        {% if 1 == i % modulo %}
+                            <li class="last">
+                        {% else %}
+                            <li>
+                        {% endif %}
+                            <article class="blog-article">
+                                <h5>{{ fn.get_post_time('j F Y', true, post.ID) }}</h5>
+                                <h2>{{ post.post_title }}</h2>
+                                {% if post.post_excerpt is not empty %}
+                                    <p>{{ post.post_excerpt }}</p>
+                                {% else %}
+                                    <p>{{ fn.wp_trim_words(post.post_content, 10)|raw }}</p>
+                                {% endif %}
+                                <div class="link-box">
+                                    <a href="{{ fn.get_permalink(post.ID) }}" class="tiny-button yellow" title="{{ __("Read more", THEME_TEXTDOMAIN) }}">{{ __("Read more", THEME_TEXTDOMAIN) }}</a>
+                                </div>
+                            </article>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+</div>

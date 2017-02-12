@@ -125,7 +125,7 @@ header{
 #search--form{
   display: none;
   position: absolute;
-  height: 60px;
+  height: 38px;
   right: 0px;
   top: 60px;
   width: 320px;
@@ -136,26 +136,24 @@ header{
     position: absolute;
     top: 0px;
     left: 0px;
-    width: 60px;
-    height: 60px;
-    background-color: $main-color;
-    background-image: url('../images/arrow.png');
-    background-position: 20px 16px;
-    background-repeat: no-repeat;
+    width: 38px;
+    height: 38px;
+    background: $main-color url('../images/arrow.png') no-repeat 13px 10px;
+    background-size: 12px 18px;
   }
 
   #search--form__form{
     position: absolute;
     top: 0px;
-    left: 60px;
+    left: 38px;
     background-color: #ffffff;
-    width: 260px;
+    width: 282px;
     overflow-x: hidden;
     padding: 8px 0px;
 
     form{
       input{
-        @include font-size(36);
+        @include font-size(18);
         font-weight: 200;
         border:none;
         outline: none;

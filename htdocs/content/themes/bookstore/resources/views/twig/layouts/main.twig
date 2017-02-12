@@ -27,9 +27,9 @@
         <div id="search--form">
             <div id="search--form__icon"></div>
             <div id="search--form__form">
-                {{ Form.open(fn.home_url(), 'get', false, {'class': 'searchform', 'role': 'search'}) }}
-                {{ Form.text('s', '', {'id': 's', 'placeholder': 'Search a book...', 'autocomplete': 'off'}) }}
-                {{ Form.close() }}
+                {{ Form.open(fn.home_url(), 'get', false, {'class': 'searchform', 'role': 'search'})|raw }}
+                {{ Form.text('s', '', {'id': 's', 'placeholder': 'Search a book...', 'autocomplete': 'off'})|raw }}
+                {{ Form.close()|raw }}
             </div>
         </div>
     </div>

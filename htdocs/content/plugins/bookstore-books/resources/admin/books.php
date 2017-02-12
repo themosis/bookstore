@@ -12,6 +12,7 @@ $books = PostType::make('bks-books', __("Books", BOOKS_MANAGER_TD), __("Book", B
     'rewrite' => [
         'slug' => 'books',
     ],
+    'has_archive' => true,
     'supports' => ['title', 'editor', 'excerpt', 'thumbnail'],
     'menu_icon' => 'dashicons-book',
     'labels' => [
