@@ -9,8 +9,13 @@
  *
  */
 
-// The front page
-Route::get('front', 'Pages@home');
+/**
+ * WordPress routes
+ */
+/*
+ * Home page.
+ */
+Route::match(['get', 'post'], 'front', 'Pages@home');
 
 // The books page
 Route::get('postTypeArchive', array('bks-books', 'uses' => 'Books@archive'));

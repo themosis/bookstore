@@ -2,19 +2,12 @@
 
 namespace Theme\Controllers;
 
-use Theme\Models\Books;
+use Dev\Bookstore\Books\Models\Books;
 use Theme\Models\Faqs;
 use Themosis\Route\BaseController;
 
 class Pages extends BaseController
 {
-    /**
-     * A books model instance.
-     *
-     * @var
-     */
-    protected $books;
-
     /**
      * A faqs model instance.
      *
@@ -24,25 +17,29 @@ class Pages extends BaseController
 
     public function __construct()
     {
-        $this->books = new Books();
         $this->faqs = new Faqs();
     }
 
     /**
-     * Handle the home page 'get' request.
+     * Handle the home page.
      *
-     * @param $post
+     * @param \Dev\Bookstore\Books\Models\Books $books The books model.
+     * @param \WP_Post $post The home page WP_Post instance.
      *
      * @return mixed
      */
-    public function home($post)
+    public function home(Books $books, $post)
     {
         // Get the promoted book ID.
         $id = meta('book-promo', $post->ID);
 
-        return view('pages.home', [
-            'promo' => $this->books->getPromoBook($id),
-            'books' => $this->books->getPopularBooks($id),
+        return view('twig.pages.home', [
+            'promo' => $books->find(['p' => $id])->first()->get(),
+            'books' => $books->find([
+                'posts_per_page'	=> 3,
+                'post__not_in'		=> [$id],
+                'orderby'			=> 'rand'
+            ])->get(),
         ]);
     }
 
