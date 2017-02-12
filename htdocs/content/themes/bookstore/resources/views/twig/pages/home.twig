@@ -1,1 +1,22 @@
 {% extends 'twig/layouts/main.twig' %}
+
+{% block main %}
+
+    <!-- Book Promo -->
+    <div id="bks-promo" style="background-color: {{ fn.meta('color', promo.id) }};">
+        <div class="wrapper">
+            <div class="promo-wrapper">
+                <div class="promo-container">
+                    <h1>{{ promo.post_title }}</h1>
+                    <h5>By {{ fn.meta('author', promo.ID) }}</h5>
+                    <a href="{{ fn.get_permalink(promo.ID) }}" class="big-button">Buy book</a>
+                </div>
+                <div class="promo-media">
+                    <img src="{{ fn.wp_get_attachment_image_url(fn.meta('promo-image', promo.ID), 'book-promo') }}" alt="{{ promo.post_title }}" width="399" height="435">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Book Promo -->
+
+{% endblock %}

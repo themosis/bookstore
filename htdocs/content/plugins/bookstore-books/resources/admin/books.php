@@ -25,7 +25,7 @@ $books = PostType::make('bks-books', __("Books", BOOKS_MANAGER_TD), __("Book", B
 $infos = Metabox::make(__("Informations", BOOKS_MANAGER_TD), $books->get('name'))->set([
     Field::text('author'),
     Field::media('promo-image', [
-        'title' => __("Image promotion", BOOKS_MANAGER_TD),
+        'title' => __("Promo Image", BOOKS_MANAGER_TD),
         'info' => __("Image used on the home page in order to promote the book.", BOOKS_MANAGER_TD),
     ]),
     Field::color('color', [

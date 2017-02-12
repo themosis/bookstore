@@ -13,8 +13,8 @@ return [
      * @param bool|array $crop Crop option. Since 3.9, define a crop position with an array.
      * @param bool $media Add to media selection dropdown. Make it also available to media custom field.
      */
-    'book-promo'            => [399, 435, true, true],
-    'book-features-image'   => [266, 146, true, true],
-    'member-pic'            => [104, 104, true, true]
+    'book-promo'            => [399, 435, true, false],
+    'book-features-image'   => [266, 146, true, false],
+    'member-pic'            => [104, 104, true, false]
 
 ];

@@ -77,12 +77,11 @@ class Books
     /**
      * Return a number of found items (books).
      *
-     * @return $this
+     * @return int
      */
     public function count()
     {
-        $this->items = [$this->query->found_posts];
-        return $this;
+        return $this->query->found_posts;
     }
 
     /**
