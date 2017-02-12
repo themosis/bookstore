@@ -1,0 +1,23 @@
+{
+  "name": "bookstore/books",
+  "description": "Bookstore custom plugin in order to handle a collection of books.",
+  "keywords": ["themosis", "plugin"],
+  "authors": [
+    {
+      "name": "Themosis",
+      "email": "support@themosis.com",
+      "homepage": "http://framework.themosis.com"
+    }
+  ],
+  "type": "wordpress-plugin",
+  "repositories":[
+    {
+      "type":"composer",
+      "url":"https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.4",
+    "composer/installers" : "~1.2"
+  }
+}
