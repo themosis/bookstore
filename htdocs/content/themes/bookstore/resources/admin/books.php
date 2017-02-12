@@ -16,7 +16,7 @@ $books = PostType::make('bks-books', 'Books', 'Book')->set(array(
 /*-----------------------------------------------------------------------*/
 // Book informations
 /*-----------------------------------------------------------------------*/
-$infos = Metabox::make('Informations', $books->getSlug())->set(array(
+$infos = Metabox::make('Informations', $books->get('name'))->set(array(
 
     Field::text('author'),
     Field::media('promo-image', array(

@@ -1,6 +1,10 @@
 <?php
 
-class BooksController extends BaseController
+namespace Theme\Controllers;
+
+use Themosis\Route\BaseController;
+
+class Books extends BaseController
 {
 	/**
 	 * A Books model instance.

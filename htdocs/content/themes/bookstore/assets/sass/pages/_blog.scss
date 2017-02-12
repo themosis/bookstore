@@ -20,7 +20,7 @@
 		.article--date{
 			background-color: $main-color;
 			display: inline-block;
-			@include border-radius(3px,3px);
+			border-radius: 3px;
 			margin-bottom: 1.5em;
 
 			span{
@@ -98,7 +98,7 @@
 						float: left;
 						display: inline-block;
 						background-color: $main-color;
-						@include border-radius(8px, 8px);
+						border-radius: 8px;
 						color: $dark-color;
 						padding: 0.8em 1.4em;
 						text-decoration: none;
@@ -116,7 +116,7 @@
 						float: right;
 						display: inline-block;
 						background-color: $main-color;
-						@include border-radius(8px, 8px);
+						border-radius: 8px;
 						color: $dark-color;
 						padding: 0.8em 1.4em;
 						text-decoration: none;

@@ -1,6 +1,12 @@
 <?php
 
-class PagesController extends BaseController
+namespace Theme\Controllers;
+
+use Theme\Models\Books;
+use Theme\Models\Faqs;
+use Themosis\Route\BaseController;
+
+class Pages extends BaseController
 {
     /**
      * A books model instance.
@@ -26,30 +32,32 @@ class PagesController extends BaseController
      * Handle the home page 'get' request.
      *
      * @param $post
+     *
      * @return mixed
      */
     public function home($post)
     {
         // Get the promoted book ID.
-        $id = Meta::get($post->ID, 'book-promo');
+        $id = meta('book-promo', $post->ID);
 
-        return View::make('pages.home')->with(array(
-            'promo'     => $this->books->getPromoBook($id),
-            'books'     => $this->books->getPopularBooks($id)
-        ));
+        return view('pages.home', [
+            'promo' => $this->books->getPromoBook($id),
+            'books' => $this->books->getPopularBooks($id),
+        ]);
     }
 
     /**
      * Handle about page request.
      *
      * @param \WP_Post $post
+     *
      * @return mixed
      */
     public function about($post)
     {
-        return View::make('pages.about', array(
-            'members'	=> Meta::get($post->ID, 'collaborators')
-        ));
+        return view('pages.about', [
+            'members' => meta('collaborators', $post->ID),
+        ]);
     }
 
     /**
@@ -59,8 +67,8 @@ class PagesController extends BaseController
      */
     public function help()
     {
-        return View::make('pages.help', array(
-            'faqs'		=> $this->faqs->all()
-        ));
+        return view('pages.help', [
+            'faqs' => $this->faqs->all(),
+        ]);
     }
 }

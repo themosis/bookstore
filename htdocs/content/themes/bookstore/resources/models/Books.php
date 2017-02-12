@@ -1,4 +1,8 @@
-<?php 
+<?php
+
+namespace Theme\Models;
+
+use \WP_Query;
 
 class Books
 {
@@ -19,7 +23,7 @@ class Books
 	*/
 	public function getPromoBook($id)
 	{
-		$book = new stdClass();
+		$book = new \stdClass();
 
         // Default values.
         $book->title = '';
@@ -43,15 +47,15 @@ class Books
 			$book->title = $results->post_title;
 
 			// Author
-			$book->author = Meta::get($results->ID, 'author');
+			$book->author = meta('author', $results->ID);
 
 			// Promo image
-			$imageId = Meta::get($results->ID, 'promo-image');
+			$imageId = meta('promo-image', $results->ID);
 			$image = wp_get_attachment_image_src($imageId, 'book-promo');
 			$book->image = $image[0];
 
 			// Color
-			$book->color = Meta::get($results->ID, 'color');
+			$book->color = meta('color', $results->ID);
 
 			// Permalink
 			$book->link = get_permalink($results->ID);
@@ -83,7 +87,7 @@ class Books
 
 		foreach ($results as $book)
 		{
-			$b = new stdClass();
+			$b = new \stdClass();
 
 			// Title
 			$b->title = $book->post_title;
@@ -92,7 +96,7 @@ class Books
 			$b->image = get_the_post_thumbnail($book->ID);
 
 			// Color
-			$b->color = Meta::get($book->ID, 'color');
+			$b->color = meta('color', $book->ID);
 
 			// Excerpt
 			$b->excerpt = $book->post_excerpt;

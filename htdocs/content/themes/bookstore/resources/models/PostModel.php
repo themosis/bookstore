@@ -1,6 +1,8 @@
 <?php
 
-class PostModel {
+namespace Theme\Models;
+
+class Post {
 
     /**
      * Return a list of all published posts.

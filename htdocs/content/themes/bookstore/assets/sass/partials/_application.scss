@@ -15,7 +15,7 @@ body{
 .big-button, .big-button:link, .big-button:visited, .big-button:active{
 	display: inline-block;
 	background-color: $main-color;
-	@include border-radius(30px, 30px);
+	border-radius:30px;
 	color: $dark-color;
 	padding: 0.8em 1.4em;
 	text-decoration: none;
@@ -32,7 +32,7 @@ body{
 .tiny-button, .tiny-button:link, .tiny-button:active, .tiny-button:visited{
 	display: inline-block;
 	background-color: $green;
-	@include border-radius(8px, 8px);
+	border-radius: 8px;
 	color: #ffffff;
 	padding: 0.8em 1.4em;
 	text-decoration: none !important;
@@ -89,7 +89,7 @@ header{
 
 			a:hover{
 				background-color: $main-color;
-				@include border-radius(18px, 18px);
+				border-radius: 18px;
 				color: $dark-color;
 			}
 		}
@@ -97,7 +97,7 @@ header{
 		.current-menu-item{
 			a, a:link, a:visited, a:active, a:hover{
 				background-color: $main-color;
-				@include border-radius(18px, 18px);
+				border-radius: 18px;
 				color: $dark-color;
 			}
 		}
