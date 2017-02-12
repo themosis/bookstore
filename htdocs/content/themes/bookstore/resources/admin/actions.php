@@ -21,11 +21,9 @@ Action::add('wp_footer', function()
 {
     if (defined('BS') && BS):
         ?>
-        <script type="text/javascript" id="__bs_script__">
-            //<![CDATA[
-            document.write('<script async src="http://HOST:3000/browser-sync/browser-sync-client.2.12.7.js"><\/script>'.replace("HOST", location.hostname));
-            //]]>
-        </script>
+        <script id="__bs_script__">//<![CDATA[
+            document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.js?v=2.18.7'><\/script>".replace("HOST", location.hostname));
+            //]]></script>
         <?php
     endif;
 });

@@ -1,292 +1,294 @@
 body{
-	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
-   	font-weight: 300;
-   	@include font-size(17);
-   	background-color: #f5f5f5;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  @include font-size(17);
+  background-color: #f5f5f5;
 }
 
 /* COMMON */
 .wrapper{
-	width: $width;
-	max-width: $max-width;
-	margin: 0 auto;
+  width: $width;
+  max-width: $max-width;
+  margin: 0 auto;
 }
 
 .big-button, .big-button:link, .big-button:visited, .big-button:active{
-	display: inline-block;
-	background-color: $main-color;
-	border-radius:30px;
-	color: $dark-color;
-	padding: 0.8em 1.4em;
-	text-decoration: none;
-	@include font-size(21);
-	font-weight: 600;
-	text-transform: uppercase;
+  display: inline-block;
+  background-color: $main-color;
+  border-radius:30px;
+  color: $dark-color;
+  padding: 0.8em 1.4em;
+  text-decoration: none;
+  @include font-size(21);
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .big-button:hover{
-	background-color: $green;
-	color: #ffffff;
+  background-color: $green;
+  color: #ffffff;
 }
 
 .tiny-button, .tiny-button:link, .tiny-button:active, .tiny-button:visited{
-	display: inline-block;
-	background-color: $green;
-	border-radius: 8px;
-	color: #ffffff;
-	padding: 0.8em 1.4em;
-	text-decoration: none !important;
-	@include font-size(17);
-	font-weight: 600;
-	text-transform: uppercase;
+  display: inline-block;
+  background-color: $green;
+  border-radius: 8px;
+  color: #ffffff;
+  padding: 0.8em 1.4em;
+  text-decoration: none !important;
+  @include font-size(17);
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .tiny-button:hover{
-	background-color: $dark-color;
+  background-color: $dark-color;
 }
 
 .yellow, .yellow:link, .yellow:visited, .yellow:active{
-	background-color: $main-color;
+  background-color: $main-color;
 }
 
 .yellow:hover{
-	background-color: $green;
+  background-color: $green;
 }
 
 /* HEADER */
 header{
-	position: relative;
-	width: 100%;
-	height: 60px;
-	background-color: $dark-color;
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background-color: $dark-color;
 }
 
 #bookstore-logo{
-	position: absolute;
-	width: 154px;
-	height: 40px;
-	top: 10px;
-	left: 20px;
+  position: absolute;
+  width: 154px;
+  height: 40px;
+  top: 10px;
+  left: 20px;
 }
 
 #bookstore-navigation{
-	position: absolute;
-	top: 20px;
-	right: 105px;
+  position: absolute;
+  top: 4px;
+  right: 105px;
 
-	ul{
-		li{
-			display: inline;
+  ul{
+    li{
+      display: inline;
 
-			a, a:link, a:visited, a:active{
-				color: #f0f0f0;
-				text-decoration: none;
-				@include font-size(14);
-				text-transform: uppercase;
-				font-weight: 600;
-				padding: 11px 17px;
-			}
+      a, a:link, a:visited, a:active{
+        color: #f0f0f0;
+        text-decoration: none;
+        @include font-size(14);
+        text-transform: uppercase;
+        font-weight: 600;
+        padding: 11px 17px;
+      }
 
-			a:hover{
-				background-color: $main-color;
-				border-radius: 18px;
-				color: $dark-color;
-			}
-		}
+      a:hover{
+        background-color: $main-color;
+        border-radius: 18px;
+        color: $dark-color;
+      }
+    }
 
-		.current-menu-item{
-			a, a:link, a:visited, a:active, a:hover{
-				background-color: $main-color;
-				border-radius: 18px;
-				color: $dark-color;
-			}
-		}
-	}
+    .current-menu-item{
+      a, a:link, a:visited, a:active, a:hover{
+        background-color: $main-color;
+        border-radius: 18px;
+        color: $dark-color;
+      }
+    }
+  }
 }
 
 #bookstore-search{
-	position: absolute;
-	top: 0px;
-	right: 0px;
-	height: 122px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  height: 122px;
 }
 
 #search-button{
-	width: 60px;
-	height: 60px;
-	background-color: $main-color;
-	background-image: url('../images/searchIcon.png');
-	background-position: 15px 13px;
-	background-repeat: no-repeat;
-	border-left: 2px solid #bfb05b;
-	cursor: pointer;
+  width: 60px;
+  height: 60px;
+  background-color: $main-color;
+  background-image: url('../images/searchIcon.png');
+  background-position: 15px 13px;
+  background-repeat: no-repeat;
+  border-left: 2px solid #bfb05b;
+  cursor: pointer;
 }
 
 #search--form{
-	display: none;
-	position: absolute;
-	height: 60px;
-	right: 0px;
-	top: 60px;
-	width: 320px;
-	z-index: 5000;
-	border-bottom: 2px solid #bfbfbf;
+  display: none;
+  position: absolute;
+  height: 60px;
+  right: 0px;
+  top: 60px;
+  width: 320px;
+  z-index: 5000;
+  border-bottom: 2px solid #bfbfbf;
 
-	#search--form__icon{
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		width: 60px;
-		height: 60px;
-		background-color: $main-color;
-		background-image: url('../images/arrow.png');
-		background-position: 20px 16px;
-		background-repeat: no-repeat;
-	}
+  #search--form__icon{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 60px;
+    height: 60px;
+    background-color: $main-color;
+    background-image: url('../images/arrow.png');
+    background-position: 20px 16px;
+    background-repeat: no-repeat;
+  }
 
-	#search--form__form{
-		position: absolute;
-		top: 0px;
-		left: 60px;
-		background-color: #ffffff;
-		width: 260px;
-		overflow-x: hidden;
-		padding: 8px 0px;
+  #search--form__form{
+    position: absolute;
+    top: 0px;
+    left: 60px;
+    background-color: #ffffff;
+    width: 260px;
+    overflow-x: hidden;
+    padding: 8px 0px;
 
-		form{
-			input{
-				@include font-size(36);
-				font-weight: 200;
-				border:none;
-				outline: none;
-				padding-left: 10px;
-				max-width: 240px;
-			}
-		}
-	}
+    form{
+      input{
+        @include font-size(36);
+        font-weight: 200;
+        border:none;
+        outline: none;
+        padding-left: 10px;
+        max-width: 240px;
+      }
+    }
+  }
 }
 
 /* FOOTER */
 footer{
-	width: 100%;
-	max-width: 100%;
-	height: 60px;
-	max-height: 60px;
-	background-color: $dark-color;
+  width: 100%;
+  max-width: 100%;
+  height: 60px;
+  max-height: 60px;
+  background-color: $dark-color;
 
-	.wrapper{
-		position: relative;
-	}
+  .wrapper{
+    position: relative;
+  }
 }
 
 .footer--copyright{
-	position: absolute;
-	top: 22px;
-	left: 0px;
+  position: absolute;
+  top: 10px;
+  left: 0px;
 
-	p{
-		color: #F0F0F0;
-		@include font-size(13);
-		font-weight: 200;
-	}
+  p{
+    color: #F0F0F0;
+    @include font-size(13);
+    font-weight: 200;
+  }
 }
 
 .footer--navigation{
-	position: absolute;
-	top: 22px;
-	right: 0px;
+  position: absolute;
+  top: 3px;
+  right: 0px;
 
-	ul{
-		li{
-			display: inline;
-			margin-left: 1em;
+  ul{
+    li{
+      display: inline;
+      margin-left: 1em;
 
-			a, a:link, a:visited, a:active{
-				color: #F0F0F0;
-				@include font-size(13);
-				font-weight: 200;
-				text-decoration: none;
-			}
+      a, a:link, a:visited, a:active{
+        color: #F0F0F0;
+        @include font-size(13);
+        font-weight: 200;
+        text-decoration: none;
+      }
 
-			a:hover{
-				text-decoration: underline;
-			}
-		}
-	}
+      a:hover{
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 /* TOP TITLES */
 .bks-title-box{
-	position: relative;
-	border-bottom: 2px solid $dark-color;
+  position: relative;
+  border-bottom: 2px solid $dark-color;
 
-	h1{
-		color: $dark-color;
-		@include font-size(48);
-		font-weight: 200;
-		text-transform: uppercase;
-	}
+  h1{
+    color: $dark-color;
+    @include font-size(48);
+    font-weight: 200;
+    text-transform: uppercase;
+  }
 
-	.bks-link, .bks-link:link, .bks-link:active, .bks-link:visited{
-		position: absolute;
-		top: 28px;
-		right: 0px;
-		@include font-size(15);
-		color: $dark-color;
-		font-weight: 600;
-		text-decoration: none;
-	}
+  .bks-link, .bks-link:link, .bks-link:active, .bks-link:visited{
+    position: absolute;
+    top: 28px;
+    right: 0px;
+    @include font-size(15);
+    color: $dark-color;
+    font-weight: 600;
+    text-decoration: none;
+  }
 
-	.bks-link:hover{
-		color: $green;
-	}
+  .bks-link:hover{
+    color: $green;
+  }
 }
 
 /* BOOKS LIST */
 .books{
-	li{
-		width: 280px;
-		display: inline-block;
-		margin-right: 55px;
+  padding: 0;
 
-		.book{
-			width: 280px;
+  li{
+    width: 280px;
+    display: inline-block;
+    margin-right: 55px;
 
-			h3{
-				color: $dark-color;
-				@include font-size(30);
-				font-weight: 600;
-				min-height: 2em;
-				margin-bottom: 0.5em;
-			}
+    .book{
+      width: 280px;
 
-			.book-featured-box, .book-featured-box:link, .book-featured-box:active, .book-featured-box:visited{
-				display: block;
-				cursor: pointer;
-				width: 266px;
-				height: 146px;
-				padding: 7px;
-				background-color: $main-color;
-			}
+      h3{
+        color: $dark-color;
+        @include font-size(30);
+        font-weight: 600;
+        min-height: 2em;
+        margin-bottom: 0.5em;
+      }
 
-			.book-featured-box:hover{
-				background-color: $green;
-			}
+      .book-featured-box, .book-featured-box:link, .book-featured-box:active, .book-featured-box:visited{
+        display: block;
+        cursor: pointer;
+        width: 266px;
+        height: 146px;
+        padding: 7px;
+        background-color: $main-color;
+      }
 
-			p{
-				line-height: 1.53em;
-				margin-top: 1.53em;
-			}
+      .book-featured-box:hover{
+        background-color: $green;
+      }
 
-			.button-box{
-				text-align: center;
-				width: 100%;
-				margin-top: 1.5em;
-			}
-		}
-	}
+      p{
+        line-height: 1.53em;
+        margin-top: 1.53em;
+      }
 
-	.last{
-		margin-right: 0px;
-	}
+      .button-box{
+        text-align: center;
+        width: 100%;
+        margin-top: 1.5em;
+      }
+    }
+  }
+
+  .last{
+    margin-right: 0px;
+  }
 }
