@@ -1,6 +1,6 @@
 <?php
 
-namespace Tld\Domain\Plugin\Services;
+namespace Dev\Bookstore\Books\Services;
 
 use Themosis\Facades\Route;
 use Themosis\Foundation\ServiceProvider;

@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Plugin Name: Plugin Name
- * Plugin URI: http://www.domain.tld
- * Description: Plugin description.
+ * Plugin Name: Books Manager
+ * Plugin URI: http://bookstore.dev/
+ * Description: Bookstore custom plugin in order to handle a collection of books.
  * Version: 1.0.0
- * Author: Your name
+ * Author: Themosis
  * Author URI: http://framework.themosis.com/
- * Text Domain: plugin-textdomain.
+ * Text Domain: books-manager
  * Domain Path: /languages
  */
 
@@ -32,7 +32,7 @@ defined('DS') ? DS : define('DS', DIRECTORY_SEPARATOR);
  * TODO: #1
  * TODO: #2 - Update plugin textdomain first argument below.
  */
-defined('MY_PLUGIN_TD') ? MY_PLUGIN_TD : define('MY_PLUGIN_TD', 'plugin-textdomain');
+defined('BOOKS_MANAGER_TD') ? BOOKS_MANAGER_TD : define('BOOKS_MANAGER_TD', 'books-manager');
 
 /*
  * Plugin variables.
@@ -43,10 +43,10 @@ defined('MY_PLUGIN_TD') ? MY_PLUGIN_TD : define('MY_PLUGIN_TD', 'plugin-textdoma
  * TODO: #5 - Update class namespaces.
  */
 $vars = [
-    'slug' => 'plugin-key',
-    'name' => 'Plugin Name',
-    'namespace' => 'tld.domain.plugin',
-    'config' => 'tld_domain_plugin',
+    'slug' => 'books-manager',
+    'name' => 'Books Manager',
+    'namespace' => 'dev.bookstore.books',
+    'config' => 'dev_bookstore_books',
 ];
 
 /*
@@ -54,7 +54,7 @@ $vars = [
  */
 add_action('admin_notices', function () use ($vars) {
     if (!class_exists('\Themosis\Foundation\Application')) {
-        printf('<div class="notice notice-error"><p>%s</p></div>', __('This plugin requires the Themosis framework in order to work.', MY_PLUGIN_TD));
+        printf('<div class="notice notice-error"><p>%s</p></div>', __('This plugin requires the Themosis framework in order to work.', BOOKS_MANAGER_TD));
     }
 
     /*
@@ -62,7 +62,7 @@ add_action('admin_notices', function () use ($vars) {
      * into your theme `supports.config.php` in order to remove this admin notice.
      */
     if (!current_theme_supports($vars['slug']) && current_user_can('switch_themes')) {
-        printf('<div class="notice notice-warning"><p>%s<strong>%s</strong></p></div>', __('Your application do not handle the following plugin: ', MY_PLUGIN_TD), $vars['name']);
+        printf('<div class="notice notice-warning"><p>%s<strong>%s</strong></p></div>', __('Your application do not handle the following plugin: ', BOOKS_MANAGER_TD), $vars['name']);
     }
 });
 
@@ -123,7 +123,7 @@ container('action')->add('plugins_loaded', function () use ($vars) {
 	 * I18n
 	 * Todo: #2 - Replace constant below.
 	 */
-	load_plugin_textdomain(MY_PLUGIN_TD, false, trailingslashit(dirname(plugin_basename(__FILE__))).'languages');
+	load_plugin_textdomain(BOOKS_MANAGER_TD, false, trailingslashit(dirname(plugin_basename(__FILE__))).'languages');
 
     /*
      * Plugin admin files.

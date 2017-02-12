@@ -29,6 +29,11 @@ return [
     /* --------------------------------------------------------------- */
     'html5' => ['comment-list', 'comment-form', 'search-form', 'gallery', 'caption'],
 
+    /*
+     * Add custom plugins support.
+     */
+    'books-manager',
+
     /* --------------------------------------------------------------- */
     // Enable feed links in head
     /* --------------------------------------------------------------- */
