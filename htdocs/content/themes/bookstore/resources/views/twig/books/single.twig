@@ -1,0 +1,70 @@
+{% extends 'twig/layouts/main.twig' %}
+
+{% block main %}
+
+    <!-- Book promo -->
+    <div id="bks-promo" style="background-color: {{ meta('color', book.ID) }};">
+        <div class="wrapper">
+            <div class="promo-wrapper">
+                <div class="promo-container">
+                    <h1>{{ book.post_title }}</h1>
+                    <h5>{{ '%s %s'|format(__("By", THEME_TEXTDOMAIN), meta('author', book.ID)) }}</h5>
+                    <a href="#" class="big-button">{{ __("Buy the book", THEME_TEXTDOMAIN) }}</a>
+                </div>
+                <div class="promo-media">
+                    <img src="{{ fn.wp_get_attachment_image_url(meta('promo-image', book.ID), 'book-promo') }}" alt="{{ book.post_title }}" width="399" height="435">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End book promo -->
+    <!-- Book content -->
+    <div class="wrapper">
+        <div id="book--container">
+            <div class="bks-title-box">
+                <h1>{{ __("Content", THEME_TEXTDOMAIN) }}</h1>
+            </div>
+            <div id="book--content">
+                {{ wpautop(book.post_content)|raw }}
+            </div>
+        </div>
+    </div>
+    <!-- End book content -->
+    <!-- Recommended books -->
+    <div class="wrapper">
+        <div class="bks-title-box">
+            <h1>{{ __("Recommandations", THEME_TEXTDOMAIN) }}</h1>
+        </div>
+        <div id="popular-container">
+            <ul class="books">
+                {% set modulo = 3 %}
+                {% for i, book in books %}
+                {% if modulo - 1 == i % modulo %}
+                    <li class="last">
+                {% else %}
+                    <li>
+                {% endif %}
+                        <div class="book">
+                            <h3>{{ book.post_title }}</h3>
+                            {% if fn.has_post_thumbnail(book.ID) %}
+                                <a href="{{ fn.get_permalink(book.ID) }}" class="book-featured-box" style="background-color: {{ meta('color', book.ID) }};">
+                                    {{ fn.get_the_post_thumbnail(book.ID, 'book-features-image')|raw }}
+                                </a>
+                            {% endif %}
+                            {% if book.post_excerpt is not empty %}
+                                <p>{{ book.post_excerpt }}</p>
+                            {% else %}
+                                <p>{{ fn.wp_trim_words(book.post_content, 10) }}</p>
+                            {% endif %}
+                            <div class="button-box">
+                                <a href="{{ fn.get_permalink(book.ID) }}" class="tiny-button">{{ __("Buy", THEME_TEXTDOMAIN) }}</a>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <!-- End recommended books -->
+
+{% endblock %}
