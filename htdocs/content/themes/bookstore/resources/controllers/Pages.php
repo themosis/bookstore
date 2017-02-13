@@ -28,7 +28,7 @@ class Pages extends BaseController
      * @param \Theme\Models\Posts $posts The posts model class.
      * @param \WP_Post $post The home page WP_Post instance.
      *
-     * @return mixed
+     * @return string
      */
     public function home(Books $books, Posts $posts, $post)
     {
@@ -50,14 +50,17 @@ class Pages extends BaseController
     /**
      * Handle about page request.
      *
-     * @param \WP_Post $post
+     * @param \Theme\Models\Posts $posts The posts model class.
+     * @param \WP_Post $post The about page WP_Post instance.
      *
-     * @return mixed
+     * @return string
      */
-    public function about($post)
+    public function about(Posts $posts, $post)
     {
-        return view('pages.about', [
+        return view('twig.pages.about', [
+            'page' => $post,
             'members' => meta('collaborators', $post->ID),
+            'latest_articles' => $posts->find(['posts_per_page' => 2])->get()
         ]);
     }
 

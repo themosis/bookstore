@@ -8,5 +8,5 @@ return [
 	 *
 	 * Simply define a template slug.
 	 */
-	'custom-template'
+	'about' => __("About", THEME_TEXTDOMAIN)
 ];

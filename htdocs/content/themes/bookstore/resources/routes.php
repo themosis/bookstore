@@ -51,8 +51,14 @@ Route::get('singular', ['bks-books', function (Books $books, \WP_Post $post, \WP
     ]);
 }]);
 
-// About page
-Route::get('page', array('about', 'uses' => 'Pages@about'));
+/*
+ * About page.
+ * Display information about the "company" and its team.
+ * The page is using a custom template which helps associate
+ * custom fields to the "about" page only and not the other
+ * "classic" pages.
+ */
+Route::match(['get', 'post'], 'template', ['about', 'uses' => 'Pages@about']);
 
 // Help page
 Route::get('page', array('help', 'uses' => 'Pages@help'));
