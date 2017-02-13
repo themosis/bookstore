@@ -10,28 +10,28 @@
             {{ wpautop(page.post_content)|raw }}
         </div>
         {% if members is not empty %}
-        <div id="about--team">
-            <ul>
-                {% set modulo = 3 %}
-                {% for i, member in members %}
-                {% if modulo - 1 == i % modulo %}
-                    <li class="last">
-                {% else %}
-                    <li>
-                {% endif %}
-                        <div class="member clearfix">
-                            <div class="member--picture">
-                                {{ fn.wp_get_attachment_image(member.pic, 'member-pic') }}
+            <div id="about--team">
+                <ul>
+                    {% set modulo = 3 %}
+                    {% for i, member in members %}
+                    {% if modulo - 1 == i % modulo %}
+                        <li class="last">
+                    {% else %}
+                        <li>
+                    {% endif %}
+                            <div class="member clearfix">
+                                <div class="member--picture">
+                                    {{ fn.wp_get_attachment_image(member.pic, 'member-pic') }}
+                                </div>
+                                <div class="member--bio">
+                                    <h4>{{ member.full_name }}</h4>
+                                    <p>{{ member.job }}</p>
+                                </div>
                             </div>
-                            <div class="member--bio">
-                                <h4>{{ member.full_name }}</h4>
-                                <p>{{ member.job }}</p>
-                            </div>
-                        </div>
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
         {% endif %}
     </div>
 
