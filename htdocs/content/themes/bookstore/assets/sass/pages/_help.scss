@@ -1,56 +1,56 @@
 #help{
-	padding: 4em  0;
+  padding: 4em  0;
 }
 
 #help--info{
-	background-color: $dark-blue;
-	border-radius: 6px;
-	margin: 2em 0;
+  background-color: $dark-blue;
+  border-radius: 6px;
+  margin: 2em 0;
 }
 
 #help--info__wrapper{
-	padding: 1em 1.5em;
+  padding: 1em 1.5em;
 
-	p{
-		color: #ffffff;
-		font-weight: 600;
-		margin-bottom: 6px;
+  p{
+    color: #ffffff;
+    font-weight: 600;
+    margin-bottom: 6px;
 
-		.bubble-icon{
-			display: inline-block;
-			width: 32px;
-			height: 28px;
-			background: url('../images/bubble.png') 0 0 no-repeat;
-			margin-bottom: -9px;
-			margin-right: 20px;
-		}
+    .bubble-icon{
+      display: inline-block;
+      width: 32px;
+      height: 28px;
+      background: url('../images/bubble.png') 0 0 no-repeat;
+      margin-bottom: -9px;
+      margin-right: 20px;
+    }
 
-		a, a:link, a:visited, a:active{
-			color: $main-color;
-			text-decoration: none;
-		}
+    a, a:link, a:visited, a:active{
+      color: $main-color;
+      text-decoration: none;
+    }
 
-		a:hover{
-			text-decoration: underline;
-		}
-	}
+    a:hover{
+      text-decoration: underline;
+    }
+  }
 }
 
 #help--faqs{
-	dl{
-		dt{
-			@include font-size(36);
-			font-weight: 200;
-			color: $dark-color;
-			margin-bottom: 0.8em;
-		}
+  dl{
+    dt{
+      @include font-size(36);
+      font-weight: 200;
+      color: $dark-color;
+      margin-bottom: 0.8em;
+    }
 
-		dd{
-			@include font-size(17);
-			font-weight: 200;
-			color: $dark-color;
-			line-height: 1.5em;
-			margin-bottom: 2em;
-		}
-	}
+    dd{
+      @include font-size(17);
+      font-weight: 200;
+      color: $dark-color;
+      line-height: 1.5em;
+      margin-bottom: 2em;
+    }
+  }
 }

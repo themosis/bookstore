@@ -1,29 +1,29 @@
 #books{
-	padding: 4em 0;
+  padding: 4em 0;
 }
 
 #books--collection{
-	padding-top: 4em;
+  padding-top: 4em;
 
-	.books{
-		li{
-			margin-bottom: 4em;
-		}
-	}
+  .books{
+    li{
+      margin-bottom: 4em;
+    }
+  }
 }
 
 #book--container{
-	padding-top: 4em;
-	padding-left: 280px;
+  padding-top: 4em;
+  padding-left: 280px;
 }
 
 #book--content{
-	padding: 3em 0;
-	width: 400px;
+  padding: 3em 0;
+  width: 400px;
 
-	p{
-		color: $dark-color;
-		text-indent: 1em;
-		line-height: 1.5em;
-	}
+  p{
+    color: $dark-color;
+    text-indent: 1em;
+    line-height: 1.5em;
+  }
 }

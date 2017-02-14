@@ -1,46 +1,46 @@
 #bks-promo{
-	width: 100%;
-	max-width: 100%;
-	background-color: #e375a2;
+  width: 100%;
+  max-width: 100%;
+  background-color: #e375a2;
 }
 
 .promo-wrapper{
-	position: relative;
-	display: block;
-	min-height: 400px;
-	height: 400px;
+  position: relative;
+  display: block;
+  min-height: 400px;
+  height: 400px;
 
-	.promo-container{
-		width: 380px;
-		padding-top: 75px;
+  .promo-container{
+    width: 380px;
+    padding-top: 75px;
 
-		h1{
-			@include font-size(48);
-			font-weight: 200;
-			color: #ffffff;
-			text-transform: uppercase;
-		}
+    h1{
+      @include font-size(48);
+      font-weight: 200;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
 
-		h5{
-			@include font-size(19);
-			font-weight: 600;
-			color: #ffffff;
-			margin: 1.5em 0;
-		}
-	}
+    h5{
+      @include font-size(19);
+      font-weight: 600;
+      color: #ffffff;
+      margin: 1.5em 0;
+    }
+  }
 
-	.promo-media{
-		position: absolute;
-		bottom: -88px;
-		right: 0px;
-	}
+  .promo-media{
+    position: absolute;
+    bottom: -88px;
+    right: 0px;
+  }
 }
 
 /* POPULAR BOOKS */
 #popular-books{
-	padding-top: 4em;
+  padding-top: 4em;
 }
 
 #popular-container{
-	padding: 2em 0;
+  padding: 2em 0;
 }

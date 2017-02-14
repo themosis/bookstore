@@ -14,14 +14,14 @@
                 <ul>
                     {% set modulo = 3 %}
                     {% for i, member in members %}
-                    {% if modulo - 1 == i % modulo %}
+                    {% if not i % modulo %}
                         <li class="last">
                     {% else %}
                         <li>
                     {% endif %}
                             <div class="member clearfix">
                                 <div class="member--picture">
-                                    {{ fn.wp_get_attachment_image(member.pic, 'member-pic') }}
+                                    {{ fn.wp_get_attachment_image(member.pic, 'member-pic')|raw }}
                                 </div>
                                 <div class="member--bio">
                                     <h4>{{ member.full_name }}</h4>
