@@ -1,8 +1,8 @@
 <?php
 
-namespace Dev\Bookstore\Books\Models;
+namespace Dev\Bookstore\Faqs\Models;
 
-class Books
+class Faqs
 {
     /**
      * @var \WP_Query
@@ -12,7 +12,7 @@ class Books
     /**
      * @var string
      */
-    public $name = 'bks-books';
+    public $name = 'bks-faqs';
 
     /**
      * Found posts.
@@ -27,7 +27,7 @@ class Books
     }
 
     /**
-     * Query books posts.
+     * Query FAQs posts.
      *
      * @param array $query
      *
@@ -60,7 +60,7 @@ class Books
     }
 
     /**
-     * Return queried books posts.
+     * Return queried organizations posts.
      *
      * @param bool $query False to return an array of items, true to return a WP_Query instance.
      *

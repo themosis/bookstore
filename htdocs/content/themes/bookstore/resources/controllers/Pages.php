@@ -3,24 +3,12 @@
 namespace Theme\Controllers;
 
 use Dev\Bookstore\Books\Models\Books;
-use Theme\Models\Faqs;
+use Dev\Bookstore\Faqs\Models\Faqs;
 use Theme\Models\Posts;
 use Themosis\Route\BaseController;
 
 class Pages extends BaseController
 {
-    /**
-     * A faqs model instance.
-     *
-     * @var
-     */
-    protected $faqs;
-
-    public function __construct()
-    {
-        $this->faqs = new Faqs();
-    }
-
     /**
      * Handle the home page.
      *
@@ -67,12 +55,16 @@ class Pages extends BaseController
     /**
      * Handle the help page request.
      *
-     * @return mixed
+     * @param \Dev\Bookstore\Faqs\Models\Faqs $faqs The Faqs model.
+     * @param \WP_Post $post The help page WP_Post.
+     *
+     * @return string
      */
-    public function help()
+    public function help(Faqs $faqs, $post)
     {
-        return view('pages.help', [
-            'faqs' => $this->faqs->all(),
+        return view('twig.pages.help', [
+            'page' => $post,
+            'faqs' => $faqs->find(['posts_per_page' => 250])->get()
         ]);
     }
 }

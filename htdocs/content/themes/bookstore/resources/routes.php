@@ -60,8 +60,11 @@ Route::get('singular', ['bks-books', function (Books $books, \WP_Post $post, \WP
  */
 Route::match(['get', 'post'], 'template', ['about', 'uses' => 'Pages@about']);
 
-// Help page
-Route::get('page', array('help', 'uses' => 'Pages@help'));
+/*
+ * Help page.
+ * Display a list of Faqs.
+ */
+Route::match(['get', 'post'], 'page', ['help', 'uses' => 'Pages@help']);
 
 // News/blog page
 Route::get('home', function()

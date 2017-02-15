@@ -15,7 +15,7 @@ if (themosis_is_post($home)) {
         Field::select('book-promo', [$books], [
             'title' => __('Book', THEME_TEXTDOMAIN),
             'info' => __('Select a book to promote on the home page.', THEME_TEXTDOMAIN),
-        ]),
+        ])
     ]);
 }
 

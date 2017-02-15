@@ -1,0 +1,24 @@
+{% extends 'twig/layouts/main.twig' %}
+
+{% block main %}
+    <div id="help" class="wrapper">
+        <div class="bks-title-box">
+            <h1>{{ page.post_title }}</h1>
+        </div>
+        {% if page.post_content is not empty %}
+            <div id="help--info">
+                <div id="help--info__wrapper">
+                    <p><span class="bubble-icon"></span>{{ page.post_content }}</p>
+                </div>
+            </div>
+        {% endif %}
+        <div id="help--faqs">
+            <dl>
+                {% for faq in faqs %}
+                    <dt>{{ faq.post_title }}</dt>
+                    <dd>{{ wpautop(faq.post_content)|raw }}</dd>
+                {% endfor %}
+            </dl>
+        </div>
+    </div>
+{% endblock %}
