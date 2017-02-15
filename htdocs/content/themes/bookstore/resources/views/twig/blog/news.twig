@@ -1,0 +1,41 @@
+{% extends 'twig/layouts/main.twig' %}
+
+{% block main %}
+    <div id="blog" class="wrapper">
+        <div class="bks-title-box">
+            <h1>Latest news</h1>
+        </div>
+        <div id="news" class="clearfix">
+            <!-- Articles -->
+            {% if articles is not empty %}
+                <div id="news--articles">
+                    {% for article in articles %}
+                        <article>
+                            <div class="article--date">
+                                <span>{{ get_the_date('j F Y') }}</span>
+                            </div>
+                            <a href="{{ Loop::link() }}" class="article--title"><h2>{{ Loop::title() }}</h2></a>
+                            {{ Loop::thumbnail() }}
+                            <div class="article--excerpt clearfix">
+                                <div class="article--excerpt__content">
+                                    <p>{{ Loop::excerpt() }}</p>
+                                    <a href="{{ Loop::link() }}" class="tiny-button yellow">Read more</a>
+                                </div>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>{{ __("Sorry, no articles available", THEME_TEXTDOMAIN) }}</p>
+            {% endif %}
+            <!-- End articles -->
+            <!-- SIDEBAR -->
+            <div id="news--sidebar">
+                <div class="sidebar">
+                    <?php dynamic_sidebar('blog-sidebar'); ?>
+                </div>
+            </div>
+            <!-- END SIDEBAR -->
+        </div>
+    </div>
+{% endblock %}

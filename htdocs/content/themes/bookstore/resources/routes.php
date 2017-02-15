@@ -66,10 +66,21 @@ Route::match(['get', 'post'], 'template', ['about', 'uses' => 'Pages@about']);
  */
 Route::match(['get', 'post'], 'page', ['help', 'uses' => 'Pages@help']);
 
-// News/blog page
-Route::get('home', function()
+/*
+ * News page.
+ * A WordPress page has been define in the administration
+ * in order to handle latest posts. This page is accessible
+ * through the "is_home()" template conditional function.
+ */
+Route::match(['get', 'post'], 'home', function($post, \WP_Query $query)
 {
-    return View::make('blog.news');
+    /*
+     * We do not have a Twig directive to handle the "WordPress Loop" so we pass
+     * them to the view through the "articles" variable.
+     */
+    return view('twig.blog.news', [
+        'articles' => $query->get_posts()
+    ]);
 });
 
 // Single post
