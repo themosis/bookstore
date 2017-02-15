@@ -102,7 +102,7 @@ class Books
          * Default options.
          */
         $options = [
-            '' => __("None", BOOKSTORE_MANAGER_TD)
+            '' => __("None", BOOKS_MANAGER_TD)
         ];
 
         foreach ($this->items as $item) {

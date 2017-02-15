@@ -74,6 +74,10 @@ return [
         'User' => Themosis\Facades\User::class,
         'Validator' => Themosis\Facades\Validator::class,
         'View' => Themosis\Facades\View::class,
+        /*
+         * Our Books custom facade defined inside the plugin.
+         */
+        'Books' => Dev\Bookstore\Books\Facades\Books::class
     ]
 
 ];
