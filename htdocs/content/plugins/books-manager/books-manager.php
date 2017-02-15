@@ -105,6 +105,11 @@ container('asset.finder')->addPaths([
 container('view.finder')->addLocation(themosis_path('plugin.'.$vars['namespace'].'.resources').'views');
 
 /*
+ * Update Twig Loader registered paths.
+ */
+container('twig.loader')->setPaths(container('view.finder')->getPaths());
+
+/*
  * Service providers.
  */
 $providers = container('config.factory')->get($vars['config'].'_providers');

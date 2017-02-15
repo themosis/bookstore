@@ -3,6 +3,7 @@
 use Themosis\Facades\Field;
 use Themosis\Facades\Metabox;
 use Themosis\Facades\PostType;
+use Themosis\Facades\View;
 
 /*
  * Register books custom post type.
@@ -22,8 +23,12 @@ $books = PostType::make('bks-books', __("Books", BOOKS_MANAGER_TD), __("Book", B
 
 /*
  * Add custom metabox in order to handle books information.
+ *
+ * Note: the metabox is assigned a custom CSS id attribute of "promo".
  */
-$infos = Metabox::make(__("Informations", BOOKS_MANAGER_TD), $books->get('name'))->set([
+$view = View::make('dev.bookstore.books.metabox.book');
+
+$infos = Metabox::make(__("Informations", BOOKS_MANAGER_TD), $books->get('name'), ['id' => 'promo'], $view)->set([
     Field::text('author'),
     Field::media('promo-image', [
         'title' => __("Promo Image", BOOKS_MANAGER_TD),
