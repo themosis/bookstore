@@ -1,0 +1,42 @@
+{% extends 'twig/layouts/main.twig' %}
+
+{% block main %}
+    <div class="wrapper">
+        <div id="news" class="clearfix">
+            <!-- Articles -->
+            <div id="news--articles">
+                {% if article %}
+                    <article class="single-article">
+                        <div class="article--date">
+                            <span>{{ fn.get_the_date('d F Y', article.ID) }}</span>
+                        </div>
+                        <span class="article--title"><h2>{{ article.post_title }}</h2></span>
+                        {% if fn.has_post_thumbnail(article.ID) %}
+                            {{ fn.get_the_post_thumbnail(article.ID)|raw }}
+                        {% endif %}
+                        <div class="article--excerpt clearfix">
+                            <div class="article--excerpt__content">
+                                {{ wpautop(article.post_content)|raw }}
+                                <div class="article--navigation clearfix">
+                                    {{ fn.previous_post_link('%link', __("Previous", THEME_TEXTDOMAIN))|raw }}
+                                    {{ fn.next_post_link('%link', __("Previous", THEME_TEXTDOMAIN))|raw }}
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                {% endif %}
+            </div>
+            <!-- End Articles -->
+            <!-- Sidebar -->
+            <div id="news--sidebar">
+                <div class="sidebar">
+                    {{ dynamic_sidebar('blog-sidebar') }}
+                </div>
+            </div>
+            <!-- End Sidebar -->
+        </div>
+    </div>
+    <!-- Blog -->
+    {% include 'twig/blog/latest.twig' %}
+    <!-- End Blog -->
+{% endblock %}

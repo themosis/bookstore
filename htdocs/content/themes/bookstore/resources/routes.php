@@ -1,6 +1,7 @@
 <?php
 
 use Dev\Bookstore\Books\Models\Books;
+use Theme\Models\Posts;
 
 /*
  * Define your routes and which views to display
@@ -83,10 +84,15 @@ Route::match(['get', 'post'], 'home', function($post, \WP_Query $query)
     ]);
 });
 
-// Single post
-Route::get('singular', array('post', function()
+/*
+ * Single post.
+ */
+Route::get('singular', array('post', function(Posts $posts, \WP_Post $post)
 {
-    return View::make('blog.post');
+    return view('twig.blog.post', [
+        'article' => $post,
+        'latest_articles' => $posts->find(['posts_per_page' => 2])->get()
+    ]);
 }));
 
 // Search page

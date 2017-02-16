@@ -3,7 +3,7 @@
 {% block main %}
     <div id="blog" class="wrapper">
         <div class="bks-title-box">
-            <h1>Latest news</h1>
+            <h1>{{ __("Latest News", THEME_TEXTDOMAIN) }}</h1>
         </div>
         <div id="news" class="clearfix">
             <!-- Articles -->
@@ -12,14 +12,16 @@
                     {% for article in articles %}
                         <article>
                             <div class="article--date">
-                                <span>{{ get_the_date('j F Y') }}</span>
+                                <span>{{ fn.get_the_date('j F Y', article.ID) }}</span>
                             </div>
-                            <a href="{{ Loop::link() }}" class="article--title"><h2>{{ Loop::title() }}</h2></a>
-                            {{ Loop::thumbnail() }}
+                            <a href="{{ fn.get_permalink(article.ID) }}" class="article--title"><h2>{{ article.post_title }}</h2></a>
+                            {% if fn.has_post_thumbnail(article.ID) %}
+                                {{ fn.get_the_post_thumbnail(article.ID)|raw }}
+                            {% endif %}
                             <div class="article--excerpt clearfix">
                                 <div class="article--excerpt__content">
-                                    <p>{{ Loop::excerpt() }}</p>
-                                    <a href="{{ Loop::link() }}" class="tiny-button yellow">Read more</a>
+                                    <p>{{ article.post_excerpt }}</p>
+                                    <a href="{{ fn.get_permalink(article.ID) }}" class="tiny-button yellow">{{ __("Read more", THEME_TEXTDOMAIN) }}</a>
                                 </div>
                             </div>
                         </article>
@@ -29,13 +31,13 @@
                 <p>{{ __("Sorry, no articles available", THEME_TEXTDOMAIN) }}</p>
             {% endif %}
             <!-- End articles -->
-            <!-- SIDEBAR -->
+            <!-- Sidebar -->
             <div id="news--sidebar">
                 <div class="sidebar">
-                    <?php dynamic_sidebar('blog-sidebar'); ?>
+                    {{ dynamic_sidebar('blog-sidebar') }}
                 </div>
             </div>
-            <!-- END SIDEBAR -->
+            <!-- End Sidebar -->
         </div>
     </div>
 {% endblock %}
