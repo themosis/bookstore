@@ -5,7 +5,7 @@ use Theme\Models\Posts;
 
 /*
  * Define your routes and which views to display
- * depending of the query.
+ * depending on the query.
  *
  * Based on WordPress conditional tags from the WordPress Codex
  * http://codex.wordpress.org/Conditional_Tags
@@ -13,7 +13,14 @@ use Theme\Models\Posts;
  */
 
 /**
- * WordPress routes
+ * Custom routes.
+ *
+ * None defined for this project but if you want to add custom routes,
+ * ALWAYS put them before the WordPress ones.
+ */
+
+/**
+ * WordPress routes.
  */
 /*
  * Home page.
@@ -25,6 +32,8 @@ Route::match(['get', 'post'], 'front', 'Pages@home');
  *
  * @param \WP_Post $post Last WP_Post instance from archive loop.
  * @param \WP_Query $query
+ *
+ * @return string
  */
 Route::match(['get', 'post'], 'postTypeArchive', function ($post, \WP_Query $query) {
     return view('twig.books.archive', [
@@ -40,6 +49,8 @@ Route::match(['get', 'post'], 'postTypeArchive', function ($post, \WP_Query $que
  * @param Books $books The books model defined from the plugin.
  * @param \WP_Post $post The book WP_Post instance.
  * @param \WP_Query $query
+ *
+ * @return string
  */
 Route::get('singular', ['bks-books', function (Books $books, \WP_Post $post, \WP_Query $query) {
     return view('twig.books.single', [
@@ -72,6 +83,11 @@ Route::match(['get', 'post'], 'page', ['help', 'uses' => 'Pages@help']);
  * A WordPress page has been define in the administration
  * in order to handle latest posts. This page is accessible
  * through the "is_home()" template conditional function.
+ *
+ * @param \WP_Post $post
+ * @param \WP_Query $query
+ *
+ * @return string
  */
 Route::match(['get', 'post'], 'home', function($post, \WP_Query $query)
 {
@@ -86,19 +102,44 @@ Route::match(['get', 'post'], 'home', function($post, \WP_Query $query)
 
 /*
  * Single post.
+ *
+ * @param Posts $posts The posts model instance.
+ * @param \WP_Post $post The post instance.
+ *
+ * @return string
  */
-Route::get('singular', array('post', function(Posts $posts, \WP_Post $post)
+Route::match(['get', 'post'], 'singular', ['post', function(Posts $posts, \WP_Post $post)
 {
     return view('twig.blog.post', [
         'article' => $post,
         'latest_articles' => $posts->find(['posts_per_page' => 2])->get()
     ]);
-}));
+}]);
+
+/*
+ * Default archive pages.
+ *
+ * @param \WP_Post $post
+ * @param \WP_Query $query
+ *
+ * @return string
+ */
+Route::match(['get', 'post'], 'archive', function ($post, \WP_Query $query) {
+    return view('twig.blog.news', [
+        'articles' => $query->get_posts(),
+        'title' => get_the_archive_title()
+    ]);
+});
 
 /*
  * Search books page.
+ *
+ * @param \WP_Post $post
+ * @param \WP_Query $query
+ *
+ * @return string
  */
-Route::get('search', function($post, \WP_Query $query)
+Route::match(['get', 'post'], 'search', function($post, \WP_Query $query)
 {
     return view('twig.books.search', [
         'books' => $query->get_posts(),

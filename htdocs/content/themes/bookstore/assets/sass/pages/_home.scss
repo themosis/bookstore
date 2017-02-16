@@ -7,12 +7,10 @@
 .promo-wrapper{
   position: relative;
   display: block;
-  min-height: 400px;
-  height: 400px;
+  padding: 4em 0;
 
   .promo-container{
     width: 380px;
-    padding-top: 75px;
 
     h1{
       @include font-size(48);

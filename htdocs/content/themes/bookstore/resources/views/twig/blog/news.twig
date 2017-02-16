@@ -3,7 +3,11 @@
 {% block main %}
     <div id="blog" class="wrapper">
         <div class="bks-title-box">
-            <h1>{{ __("Latest News", THEME_TEXTDOMAIN) }}</h1>
+            {% if title is defined and title is not empty %}
+                <h1>{{ title }}</h1>
+            {% else %}
+                <h1>{{ __("Latest News", THEME_TEXTDOMAIN) }}</h1>
+            {% endif %}
         </div>
         <div id="news" class="clearfix">
             <!-- Articles -->
