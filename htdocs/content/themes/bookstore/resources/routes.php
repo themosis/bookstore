@@ -95,8 +95,13 @@ Route::get('singular', array('post', function(Posts $posts, \WP_Post $post)
     ]);
 }));
 
-// Search page
-Route::get('search', function()
+/*
+ * Search books page.
+ */
+Route::get('search', function($post, \WP_Query $query)
 {
-    return View::make('search');
+    return view('twig.books.search', [
+        'books' => $query->get_posts(),
+        'searched_terms' => Input::get('s')
+    ]);
 });

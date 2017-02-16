@@ -1,0 +1,38 @@
+{% extends 'twig/layouts/main.twig' %}
+
+{% block main %}
+    <div id="books" class="wrapper">
+        <div class="bks-title-box">
+            <h1>{{ __("Search results", THEME_TEXTDOMAIN) }}</h1>
+        </div>
+        <div id="books--collection">
+            {% if books is not empty %}
+                <ul class="books">
+                    {% set modulo = 3 %}
+                    {% for i, book in books %}
+                    {% if modulo - 1 == i % modulo %}
+                        <li class="last">
+                    {% else %}
+                        <li>
+                    {% endif %}
+                            <div class="book">
+                                <h3>{{ book.post_title }}</h3>
+                                {% if fn.has_post_thumbnail(book.ID) %}
+                                    <a href="{{ fn.get_permalink(book.ID) }}" class="book-featured-box" style="background-color: {{ meta('color', book.ID) }};">
+                                        {{ fn.get_the_post_thumbnail(book.ID, 'book-features-image')|raw }}
+                                    </a>
+                                {% endif %}
+                                <p>{{ book.post_excerpt }}</p>
+                                <div class="button-box">
+                                    <a href="{{ fn.get_permalink(book.ID) }}" class="tiny-button">{{ __("Buy", THEME_TEXTDOMAIN) }}</a>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <h2>{{ '%s "%s"'|format(__("Sorry, but we don't find any books related to:", THEME_TEXTDOMAIN), searched_terms) }}</h2>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
