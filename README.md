@@ -25,8 +25,9 @@ The project comes with a local configuration and a MySQL dump. In order to insta
 5. Create a MySQL user with a username of `demo` and a password of `demo` for `localhost`.
 6. Assign the demo user privileges to the `bookstore` database.
 7. Import project MySQL data, stored in the project `data/bookstore.sql` file into the `bookstore` database.
-8. From the browser, visit the `http://bookstore.dev/` URL.
-9. Bookstore project is installed. Enjoy!
+8. Open your Console/Terminal, go to the bookstore root directory and run a `composer install` command.
+9. From the browser, visit the `http://bookstore.dev/` URL.
+10. The Bookstore project is now installed. Enjoy!
 
 WordPress
 ---------
