@@ -33,7 +33,7 @@ WordPress
 ---------
 
 The imported database contains a default WordPress user with an administrator role.
-In order to log in the WordPress administration, use the following access:
+In order to log in the WordPress administration, visit the `bookstore.dev/login` URL and use the following access:
 
 - Username: _demo_
 - Password: _demo_
