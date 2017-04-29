@@ -18,8 +18,8 @@
                             <div class="article--excerpt__content">
                                 {{ wpautop(article.post_content)|raw }}
                                 <div class="article--navigation clearfix">
-                                    {{ fn.previous_post_link('%link', __("Previous", THEME_TEXTDOMAIN))|raw }}
-                                    {{ fn.next_post_link('%link', __("Previous", THEME_TEXTDOMAIN))|raw }}
+                                    {{ fn.previous_post_link('%link', __("Previous", constant('THEME_TEXTDOMAIN')))|raw }}
+                                    {{ fn.next_post_link('%link', __("Previous", constant('THEME_TEXTDOMAIN')))|raw }}
                                 </div>
                             </div>
                         </div>

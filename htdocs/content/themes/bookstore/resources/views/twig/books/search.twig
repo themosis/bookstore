@@ -3,7 +3,7 @@
 {% block main %}
     <div id="books" class="wrapper">
         <div class="bks-title-box">
-            <h1>{{ __("Search results", THEME_TEXTDOMAIN) }}</h1>
+            <h1>{{ __("Search results", constant('THEME_TEXTDOMAIN')) }}</h1>
         </div>
         <div id="books--collection">
             {% if books is not empty %}
@@ -24,14 +24,14 @@
                                 {% endif %}
                                 <p>{{ book.post_excerpt }}</p>
                                 <div class="button-box">
-                                    <a href="{{ fn.get_permalink(book.ID) }}" class="tiny-button">{{ __("Buy", THEME_TEXTDOMAIN) }}</a>
+                                    <a href="{{ fn.get_permalink(book.ID) }}" class="tiny-button">{{ __("Buy", constant('THEME_TEXTDOMAIN')) }}</a>
                                 </div>
                             </div>
                         </li>
                     {% endfor %}
                 </ul>
             {% else %}
-                <h2>{{ '%s "%s"'|format(__("Sorry, but we don't find any books related to:", THEME_TEXTDOMAIN), searched_terms) }}</h2>
+                <h2>{{ '%s "%s"'|format(__("Sorry, but we don't find any books related to:", constant('THEME_TEXTDOMAIN')), searched_terms) }}</h2>
             {% endif %}
         </div>
     </div>

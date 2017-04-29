@@ -4,7 +4,7 @@
 
     <div id="books" class="wrapper">
         <div class="bks-title-box">
-            <h1>{{ __("Collection", THEME_TEXTDOMAIN) }}</h1>
+            <h1>{{ __("Collection", constant('THEME_TEXTDOMAIN')) }}</h1>
         </div>
         <div id="books--collection">
             <ul class="books">
@@ -24,7 +24,7 @@
                             {% endif %}
                             <p>{{ fn.get_the_excerpt(book.ID) }}</p>
                             <div class="button-box">
-                                <a href="{{ fn.get_permalink(book.ID) }}" class="tiny-button">{{ __("Buy", THEME_TEXTDOMAIN) }}</a>
+                                <a href="{{ fn.get_permalink(book.ID) }}" class="tiny-button">{{ __("Buy", constant('THEME_TEXTDOMAIN')) }}</a>
                             </div>
                         </div>
                     </li>

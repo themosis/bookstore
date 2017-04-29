@@ -28,7 +28,7 @@
             <div id="search--form__icon"></div>
             <div id="search--form__form">
                 {{ Form.open(fn.home_url(), 'get', false, {'class': 'searchform', 'role': 'search'})|raw }}
-                {{ Form.text('s', '', {'id': 's', 'placeholder': 'Search a book...', 'autocomplete': 'off'})|raw }}
+                {{ Form.text('s', '', {'id': 's', 'placeholder': __("Search a book...", constant('THEME_TEXTDOMAIN')), 'autocomplete': 'off'})|raw }}
                 {{ Form.close()|raw }}
             </div>
         </div>

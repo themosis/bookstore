@@ -1,9 +1,9 @@
 <div id="bks-blog">
     <div class="wrapper">
         <div class="bks-title-box">
-            <h1>{{ __("Latest news", THEME_TEXTDOMAIN) }}</h1>
+            <h1>{{ __("Latest news", constant('THEME_TEXTDOMAIN')) }}</h1>
             {% if news_url is defined and news_url is not empty %}
-                <a href="{{ news_url }}" title="{{ __("All Articles", THEME_TEXTDOMAIN) }}" class="bks-link">{{ '> %s'|format(__("All Articles", THEME_TEXTDOMAIN)) }}</a>
+                <a href="{{ news_url }}" title="{{ __("All Articles", constant('THEME_TEXTDOMAIN')) }}" class="bks-link">{{ '> %s'|format(__("All Articles", constant('THEME_TEXTDOMAIN'))) }}</a>
             {% endif %}
         </div>
         {% if latest_articles is defined %}
@@ -25,7 +25,7 @@
                                     <p>{{ fn.wp_trim_words(post.post_content, 10)|raw }}</p>
                                 {% endif %}
                                 <div class="link-box">
-                                    <a href="{{ fn.get_permalink(post.ID) }}" class="tiny-button yellow" title="{{ __("Read more", THEME_TEXTDOMAIN) }}">{{ __("Read more", THEME_TEXTDOMAIN) }}</a>
+                                    <a href="{{ fn.get_permalink(post.ID) }}" class="tiny-button yellow" title="{{ __("Read more", constant('THEME_TEXTDOMAIN')) }}">{{ __("Read more", constant('THEME_TEXTDOMAIN')) }}</a>
                                 </div>
                             </article>
                         </li>
