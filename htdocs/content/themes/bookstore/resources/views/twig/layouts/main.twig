@@ -40,7 +40,7 @@
 <footer>
     <div class="wrapper">
         <div class="footer--copyright">
-            <p>&copy; Copyright Bookstore {{ "now"|date('Y') }}</p>
+            <p>&copy; {{ '%s %d'|format(__("Copyright Bookstore", constant('THEME_TEXTDOMAIN')), "now"|date('Y')) }}</p>
         </div>
         <div class="footer--navigation">
             {{ fn.wp_nav_menu({
