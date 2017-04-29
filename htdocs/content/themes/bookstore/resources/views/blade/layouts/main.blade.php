@@ -37,7 +37,7 @@
 <footer>
     <div class="wrapper">
         <div class="footer--copyright">
-            <p>&copy; Copyright Bookstore {{ date('Y') }}</p>
+            <p>&copy; {{ sprintf('%s %d', __("Copyright Bookstore", THEME_TEXTDOMAIN), date('Y')) }}</p>
         </div>
         <div class="footer--navigation">
             @php(wp_nav_menu([
