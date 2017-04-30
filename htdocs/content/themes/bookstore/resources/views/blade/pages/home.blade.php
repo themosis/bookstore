@@ -1,52 +1,57 @@
-@include('header')
+@extends('blade.layouts.main')
 
-	<!-- BOOK PROMO -->
-	<div id="bks-promo" style="background-color: {{ $promo->color }};">
-		<div class="wrapper">
-			<div class="promo-wrapper">
-				<div class="promo-container">
-					<h1>{{ $promo->title }}</h1>
-					<h5>By {{ $promo->author }}</h5>
-					<a href="{{ $promo->link }}" class="big-button">Buy book</a>
-				</div>
-				<div class="promo-media">
-					<img src="{{ $promo->image }}" alt="{{ $promo->title }}" width="399" height="435">
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- END BOOK PROMO -->
-	<!-- POPULAR -->
-	<div id="popular-books" class="wrapper">
-		<div class="bks-title-box">
-			<h1>Popular</h1>
-			<a href="{{ home_url('books') }}" title="Books" class="bks-link">&gt; all books</a>
-		</div>
-		<div id="popular-container">
-			<ul class="books">
-				<?php
-					$modulo = 3;
-				?>
-				@foreach($books as $i => $book)
-					<li <?php if(2 == $i % $modulo){ echo('class="last"'); } ?>>
-						<div class="book">
-							<h3>{{ $book->title }}</h3>
-							<a href="{{ $book->link }}" class="book-featured-box" style="background-color: {{ $book->color }};">
-								{{ $book->image }}
-							</a>
-							<p>{{ $book->excerpt }}</p>
-							<div class="button-box">
-								<a href="{{ $book->link }}" class="tiny-button">Buy</a>
-							</div>
-						</div>
-					</li>
-				@endforeach
-			</ul>
-		</div>
-	</div>
-	<!-- END POPULAR -->
-	<!-- BLOG -->
-	@include('blog.latest')
-	<!-- END BLOG -->
+@section('main')
 
-@include('footer')
+    <!-- Book Promo -->
+    <div id="bks-promo" style="background-color: {{ meta('color', $promo->ID) }};">
+        <div class="wrapper">
+            <div class="promo-wrapper">
+                <div class="promo-container">
+                    <h1>{{ $promo->post_title }}</h1>
+                    <h5>{{ sprintf('%s %s', __("By", THEME_TEXTDOMAIN), meta('author', $promo->ID)) }}</h5>
+                    <a href="{{ get_permalink($promo->ID) }}" class="big-button">{{ __("Buy book", THEME_TEXTDOMAIN) }}</a>
+                </div>
+                <div class="promo-media">
+                    <img src="{{ wp_get_attachment_image_url(meta('promo-image', $promo->ID), 'book-promo') }}" alt="{{ $promo->post_title }}" width="399" height="435">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Book Promo -->
+
+    <!-- Popular -->
+    <div id="popular-books" class="wrapper">
+        <div class="bks-title-box">
+            <h1>{{ __("Popular", THEME_TEXTDOMAIN) }}</h1>
+            <a href="{{ get_post_type_archive_link($promo->post_type) }}" title="{{ __("Books", THEME_TEXTDOMAIN) }}" class="bks-link">{{ sprintf('> %s', __("All Books", THEME_TEXTDOMAIN)) }}</a>
+        </div>
+        <div id="popular-container">
+            <ul class="books">
+                @foreach($books as $i -> $book)
+                    @if(2 == $i % 3)
+                        <li class="last">
+                    @else
+                        <li>
+                    @endif
+                        <div class="book">
+                            <h3>{{ $book->post_title }}</h3>
+                            @if(has_post_thumbnail($book->ID))
+                                <a href="{{ get_permalink($book->ID) }}" class="book-featured-box" style="background-color: {{ meta('color', $book->ID) }};">
+                                    {!! get_the_post_thumbnail($book->ID, 'book-features-image') !!}
+                                </a>
+                            @endif
+                            <p>{{ $book->post_excerpt }}</p>
+                            <div class="button-box">
+                                <a href="{{ get_permalink($book->ID) }}" class="tiny-button">{{ __("Buy", THEME_TEXTDOMAIN) }}</a>
+                            </div>
+                        </div>
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    </div>
+    <!-- End Popular -->
+
+    @include('blade.blog.latest)
+
+@endsection
