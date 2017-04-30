@@ -5,8 +5,6 @@ The **Bookstore** is a sample project used to demonstrate best practices in deve
 
 The project shows to developers how to work with the APIs, how to configure and develop a custom plugin and handle the front-end output with a custom theme.
 
-_Work in progress_
-
 Requirements
 ------------
 
@@ -50,5 +48,7 @@ The project is composed of the following elements:
 - A `books-manager` plugin developed based on the Themosis framework [plugin boilerplate](https://github.com/themosis/plugin)
 - A `bookstore-faqs` minimalist plugin using some framework APIs
 - The `uploads` directory with media images used along the project content
+
+The project's theme is by default configured to use `Twig` views stored into its `resources/views/twig` directory but there are also `Blade` views stored into the `resources/views/blade`.
 
 We encourage you to explore both plugins and the theme code in order to get familiar with the APIs of the Themosis framework.
