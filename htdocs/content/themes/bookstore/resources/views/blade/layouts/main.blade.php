@@ -34,6 +34,9 @@
         </div>
     </div>
 </header>
+
+@yield('main')
+
 <footer>
     <div class="wrapper">
         <div class="footer--copyright">
