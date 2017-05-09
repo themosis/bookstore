@@ -18,7 +18,7 @@ class Faqs
 	*/
 	public function all()
 	{
-		$query = new WP_Query(array(
+		$query = new \WP_Query(array(
 			'post_type'			=> $this->slug,
 			'posts_per_page'	=> -1,
 			'post_status'		=> 'publish',
