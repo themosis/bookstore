@@ -1,0 +1,19 @@
+ip: 192.168.10.10
+memory: 2048
+cpus: 1
+provider: virtualbox
+authorize: ~/.ssh/id_rsa.pub
+keys:
+    - ~/.ssh/id_rsa
+folders:
+    -
+        map: /Users/jlambe/Code/bookstore
+        to: /home/vagrant/code
+sites:
+    -
+        map: bookstore.test
+        to: /home/vagrant/code/htdocs
+databases:
+    - bookstore
+name: bookstore
+hostname: bookstore
