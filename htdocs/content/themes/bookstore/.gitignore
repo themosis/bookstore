@@ -2,8 +2,8 @@
 .DS_Store
 Thumbs.db
 .idea/
+.php_cs.cache
 
 # Theme
-vendor/
-composer.lock
 node_modules/
+vendor/
