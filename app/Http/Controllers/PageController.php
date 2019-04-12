@@ -21,6 +21,11 @@ class PageController extends Controller
 
         return view('blade.pages.front', [
             'promo' => Book::find($promoBookId),
+            'books' => Book::where('post_status', 'publish')
+                ->whereNotIn('ID', [$promoBookId])
+                ->inRandomOrder()
+                ->take(3)
+                ->get(),
             'news_url' => ('page' === get_option('show_on_front'))
                 ? get_permalink(get_option('page_for_posts'))
                 : get_home_url(),

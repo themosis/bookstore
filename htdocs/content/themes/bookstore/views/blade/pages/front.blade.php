@@ -22,7 +22,7 @@
     <!-- End Book Promo -->
 
     <!-- Popular -->
-    @if(isset($books))
+    @if(isset($books) && $books->isNotEmpty())
         <div id="popular-books" class="wrapper">
             <div class="bks-title-box">
                 <h1>{{ __('Popular', THEME_TD) }}</h1>
@@ -30,7 +30,7 @@
             </div>
             <div id="popular-container">
                 <ul class="books">
-                    @foreach($books as $i -> $book)
+                    @foreach($books as $i => $book)
                         @if(2 == $i % 3)
                             <li class="last">
                         @else
@@ -39,7 +39,7 @@
                             <div class="book">
                                 <h3>{{ $book->post_title }}</h3>
                                 @if(has_post_thumbnail($book->ID))
-                                    <a href="{{ get_permalink($book->ID) }}" class="book-featured-box" style="background-color: {{ meta('color', $book->ID) }};">
+                                    <a href="{{ get_permalink($book->ID) }}" class="book-featured-box" style="background-color: {{ meta('color', $book->ID, true) }};">
                                         {!! get_the_post_thumbnail($book->ID, 'book-features-image') !!}
                                     </a>
                                 @endif
