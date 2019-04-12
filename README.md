@@ -8,33 +8,24 @@ The project shows to developers how to work with the APIs, how to configure and 
 Requirements
 ------------
 
-- PHP >= 5.6.4
-- Themosis framework >= 1.3.0
+- PHP >= 7.1
+- Themosis framework >= 2.0.0
 
 Installation
 ------------
 
 The project comes with a local configuration and a MySQL dump. In order to install this demo project on your local machine, please follow the steps below:
 
-1. Download, from our GitHub repository, the project `.zip` file and extract it.
-2. Setup a Virtual Host with a local host value of `bookstore.dev`.
-3. Set Virtual Host root path to the project `htdocs` directory.
-4. From your MySQL local server, create a database with a name of `bookstore`.
-5. Create a MySQL user with a username of `demo` and a password of `demo` for `localhost`.
-6. Assign the demo user privileges to the `bookstore` database.
-7. Import project MySQL data, stored in the project `data/bookstore.sql` file into the `bookstore` database.
-8. Open your Console/Terminal, go to the bookstore root directory and run a `composer install` command.
-9. From the browser, visit the `http://bookstore.dev/` URL.
-10. The Bookstore project is now installed. Enjoy!
+> Update installation process...
 
 WordPress
 ---------
 
 The imported database contains a default WordPress user with an administrator role.
-In order to log in the WordPress administration, visit the `bookstore.dev/login` URL and use the following access:
+In order to log in the WordPress administration, visit the `bookstore.test/login` URL and use the following access:
 
-- Username: _demo_
-- Password: _demo_
+- Username: _homestead_
+- Password: _secret_
 
 Notes
 -----
@@ -49,6 +40,6 @@ The project is composed of the following elements:
 - A `bookstore-faqs` minimalist plugin using some framework APIs
 - The `uploads` directory with media images used along the project content
 
-The project's theme is by default configured to use `Twig` views stored into its `resources/views/twig` directory but there are also `Blade` views stored into the `resources/views/blade`.
+The project's theme is by default configured to use `Blade` views stored into its `resources/views/blade` directory but there are also `Twig` views stored into the `resources/views/twig`.
 
 We encourage you to explore both plugins and the theme code in order to get familiar with the APIs of the Themosis framework.

@@ -1,22 +1,28 @@
 ### Miscellaneous
 .DS_Store
 Thumbs.db
-.idea/
+
+### Vagrant
+/.vagrant
 
 ### Composer
-composer.lock
-vendor/
+/vendor/
 
 ### IDE
-.idea/
+/.idea
 
-### Wordpress
-htdocs/cms/
-htdocs/content/mu-plugins/themosis-framework/
-htdocs/content/themes/themosis-theme/
-htdocs/content/upgrade/
-htdocs/content/languages/
+### PHPCS
+cs_fixer*
+.php_cs.cache
+
+### NodeJS
+node_modules/
+
+### WordPress
+/htdocs/cms/
+/htdocs/content/upgrade/
 
 ### Environment Credentials
-.env.*
-!.env.local
+### Normally we ignore the .env file but
+### as this is a demo application, we keep
+### the .env file configuration for sharing.
