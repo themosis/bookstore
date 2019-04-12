@@ -155,7 +155,8 @@ return [
         App\Hooks\Application::class,
         App\Hooks\Compat::class,
         App\Hooks\Mail::class,
-        App\Hooks\Widgets::class
+        App\Hooks\Widgets::class,
+        App\Hooks\Books::class
     ],
 
     /*
