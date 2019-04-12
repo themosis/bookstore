@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Hooks;
+namespace App\Hooks\Books;
 
 use Themosis\Hook\Hookable;
 use Themosis\PostType\Contracts\PostTypeInterface;

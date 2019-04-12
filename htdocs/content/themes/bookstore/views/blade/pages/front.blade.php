@@ -4,16 +4,16 @@
 
     <!-- Book Promo -->
     @if(isset($promo))
-        <div id="bks-promo" style="background-color: {{ meta($promo->ID, 'color') }};">
+        <div id="bks-promo" style="background-color: {{ meta($promo->ID, 'th_color', true) }};">
             <div class="wrapper">
                 <div class="promo-wrapper">
                     <div class="promo-container">
                         <h1>{{ $promo->post_title }}</h1>
-                        <h5>{{ sprintf('%s %s', __("By", THEME_TD), meta($promo->ID, 'author')) }}</h5>
+                        <h5>{{ sprintf('%s %s', __("By", THEME_TD), meta($promo->ID, 'th_author', true)) }}</h5>
                         <a href="{{ get_permalink($promo->ID) }}" class="big-button">{{ __("Buy book", THEME_TD) }}</a>
                     </div>
                     <div class="promo-media">
-                        <img src="{{ wp_get_attachment_image_url(meta($promo->ID, 'promo-image'), 'book-promo') }}" alt="{{ $promo->post_title }}" width="399" height="435">
+                        <img src="{{ wp_get_attachment_image_url(meta($promo->ID, 'th_promo-image', true), 'book-promo') }}" alt="{{ $promo->post_title }}" width="399" height="435">
                     </div>
                 </div>
             </div>
