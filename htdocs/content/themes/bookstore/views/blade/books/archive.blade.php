@@ -4,33 +4,35 @@
 
     <div id="books" class="wrapper">
         <div class="bks-title-box">
-            <h1>{{ __("Collection", THEME_TEXTDOMAIN) }}</h1>
+            <h1>{{ __("Collection", THEME_TD) }}</h1>
         </div>
         <div id="books--collection">
             <ul class="books">
                 @php
                     $modulo = 3;
+                    $i = 0;
                 @endphp
-                @foreach($books as $i => $book)
+                @loop
                     @if($modulo - 1 == $i % $modulo)
                         <li class="last">
                     @else
                         <li>
                     @endif
                         <div class="book">
-                            <h3>{{ $book->post_title }}</h3>
-                            @if(has_post_thumbnail($book->ID))
-                                <a href="{{ get_permalink($book->ID) }}" class="book-featured-box" style="background-color: {{ meta('color', $book->ID) }};">
-                                    {!! get_the_post_thumbnail($book->ID, 'book-features-image') !!}
+                            <h3>{{ Loop::title() }}</h3>
+                            @if(has_post_thumbnail())
+                                <a href="{{ Loop::link() }}" class="book-featured-box" style="background-color: {{ meta(Loop::id(), 'color', true) }};">
+                                    {!! Loop::thumbnail('book-features-image') !!}
                                 </a>
                             @endif
-                            <p>{{ get_the_excerpt($book->ID) }}</p>
+                            <p>{{ Loop::excerpt() }}</p>
                             <div class="button-box">
-                                <a href="{{ get_permalink($book->ID) }}" class="tiny-button">{{ __("Buy", THEME_TEXTDOMAIN) }}</a>
+                                <a href="{{ Loop::link() }}" class="tiny-button">{{ __("Buy", THEME_TD) }}</a>
                             </div>
                         </div>
                     </li>
-                @endforeach
+                    @php($i++)
+                @endloop
             </ul>
         </div>
     </div>

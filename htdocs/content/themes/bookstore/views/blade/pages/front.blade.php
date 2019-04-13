@@ -39,7 +39,7 @@
                             <div class="book">
                                 <h3>{{ $book->post_title }}</h3>
                                 @if(has_post_thumbnail($book->ID))
-                                    <a href="{{ get_permalink($book->ID) }}" class="book-featured-box" style="background-color: {{ meta('color', $book->ID, true) }};">
+                                    <a href="{{ get_permalink($book->ID) }}" class="book-featured-box" style="background-color: {{ meta($book->ID, 'th_color', true) }};">
                                         {!! get_the_post_thumbnail($book->ID, 'book-features-image') !!}
                                     </a>
                                 @endif
