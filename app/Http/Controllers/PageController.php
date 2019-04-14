@@ -69,4 +69,14 @@ class PageController extends Controller
                 : new Collection()
         ]);
     }
+
+    /**
+     * Handle generic pages.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\Factory|\Illuminate\View\View
+     */
+    public function page()
+    {
+        return view('blade.pages.default');
+    }
 }

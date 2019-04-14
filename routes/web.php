@@ -23,3 +23,12 @@ Route::any('home', 'BlogController@index');
 
 // Blog single post.
 Route::any('single', 'BlogController@single');
+
+// Blog archive.
+Route::any('archive', 'BlogController@index');
+
+// Book search.
+Route::any('search', 'BookController@search');
+
+// Generic page.
+Route::any('page', 'PageController@page');

@@ -34,4 +34,16 @@ class BookController extends Controller
                 ->get()
         ]);
     }
+
+    /**
+     * Handle search page.
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\Factory|\Illuminate\View\View
+     */
+    public function search(Request $request)
+    {
+        return view('blade.books.search', [
+            'searched_terms' => $request->get('s')
+        ]);
+    }
 }

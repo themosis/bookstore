@@ -158,6 +158,7 @@ return [
         App\Hooks\Widgets::class,
         App\Hooks\Books\Books::class,
         App\Hooks\Books\Promotion::class,
+        App\Hooks\Books\Search::class,
         App\Hooks\Team\People::class
     ],
 
