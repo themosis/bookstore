@@ -14,3 +14,6 @@ Route::any('singular', ['bks-books', 'uses' => 'BookController@single']);
 
 // About page.
 Route::any('template', ['about', 'uses' => 'PageController@about']);
+
+// Help page.
+Route::any('page', ['help', 'uses' => 'PageController@help']);

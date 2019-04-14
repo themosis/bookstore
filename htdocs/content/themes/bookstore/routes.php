@@ -24,12 +24,6 @@ use Theme\Models\Posts;
  */
 
 /*
- * Help page.
- * Display a list of Faqs.
- */
-Route::match(['get', 'post'], 'page', ['help', 'uses' => 'Pages@help']);
-
-/*
  * News page.
  * A WordPress page has been define in the administration
  * in order to handle latest posts. This page is accessible

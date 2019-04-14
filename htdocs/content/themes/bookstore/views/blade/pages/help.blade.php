@@ -1,18 +1,17 @@
 @extends('blade.layouts.main')
 
 @section('main')
-
     <div id="help" class="wrapper">
-        <div class="bks-title-box">
-            <h1>{{ $page->post_title }}</h1>
-        </div>
-        @if(!empty($page->post_content))
+        @loop
+            <div class="bks-title-box">
+                <h1>{{ Loop::title() }}</h1>
+            </div>
             <div id="help--info">
                 <div id="help--info__wrapper">
-                    <p><span class="bubble-icon"></span>{{ $page->post_content }}</p>
+                    {!! Loop::content() !!}
                 </div>
             </div>
-        @endif
+        @endloop
         <div id="help--faqs">
             <dl>
                 @foreach($faqs as $faq)

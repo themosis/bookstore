@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Plugin Boilerplate\n"
+"POT-Creation-Date: 2016-11-16 12:14+0100\n"
+"PO-Revision-Date: 2016-11-16 12:14+0100\n"
+"Last-Translator: Themosis <support@themosis.com>\n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.5\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;__;_x;_n_noop;_n;_ex;_nx;"
+"esc_attr__;esc_attr_e;_nx_noop;esc_attr_x;esc_html_e;esc_html_x;"
+"translate_nooped_plural\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SearchPath-0: resources\n"
+"X-Poedit-SearchPath-1: .\n"
+"X-Poedit-SearchPath-2: resources/admin\n"
+"X-Poedit-SearchPath-3: resources/views\n"
+
+#: plugin-name.php:57
+msgid "This plugin requires the Themosis framework in order to work."
+msgstr ""
+
+#: plugin-name.php:65
+msgid "Your application do not handle the following plugin: "
+msgstr ""

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Book;
 use App\Post;
 use App\Teammate;
+use Com\Themosis\Faqs\Models\Faq;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -51,6 +53,20 @@ class PageController extends Controller
                 ->orderby('post_date', 'desc')
                 ->take(2)
                 ->get()
+        ]);
+    }
+
+    /**
+     * Handle help page (post name).
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\Factory|\Illuminate\View\View
+     */
+    public function help()
+    {
+        return view('blade.pages.help', [
+            'faqs' => class_exists('Com\Themosis\Faqs\Models\Faq')
+                ? Faq::where('post_status', 'publish')->get()
+                : new Collection()
         ]);
     }
 }

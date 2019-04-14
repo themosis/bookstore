@@ -1,0 +1,23 @@
+{
+  "name": "plugin/name",
+  "description": "Plugin description",
+  "keywords": ["themosis", "plugin"],
+  "authors": [
+    {
+      "name": "Your Name",
+      "email": "name@domain.tld",
+      "homepage": "http://www.website.com"
+    }
+  ],
+  "type": "wordpress-plugin",
+  "repositories":[
+    {
+      "type":"composer",
+      "url":"https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "composer/installers" : "~1.2"
+  }
+}
