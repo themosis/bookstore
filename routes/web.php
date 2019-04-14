@@ -11,3 +11,6 @@ Route::any('postTypeArchive', ['bks-books', 'uses' => 'BookController@archive'])
 
 // Book singular page.
 Route::any('singular', ['bks-books', 'uses' => 'BookController@single']);
+
+// About page.
+Route::any('template', ['about', 'uses' => 'PageController@about']);

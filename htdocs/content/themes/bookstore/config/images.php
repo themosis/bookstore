@@ -14,5 +14,4 @@
 return [
     'book-promo' => [399, 435, true, false],
     'book-features-image' => [266, 146, true, false],
-    'member-pic' => [104, 104, true, false]
 ];

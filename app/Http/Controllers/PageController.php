@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use App\Post;
+use App\Teammate;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -29,6 +30,23 @@ class PageController extends Controller
             'news_url' => ('page' === get_option('show_on_front'))
                 ? get_permalink(get_option('page_for_posts'))
                 : get_home_url(),
+            'latest_articles' => Post::where('post_status', 'publish')
+                ->orderby('post_date', 'desc')
+                ->take(2)
+                ->get()
+        ]);
+    }
+
+    /**
+     * Handle about page (template).
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\Factory|\Illuminate\View\View
+     */
+    public function about()
+    {
+        return view('blade.pages.about', [
+            'members' => Teammate::where('post_status', 'publish')
+                ->get(),
             'latest_articles' => Post::where('post_status', 'publish')
                 ->orderby('post_date', 'desc')
                 ->take(2)

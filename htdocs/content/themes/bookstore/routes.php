@@ -24,15 +24,6 @@ use Theme\Models\Posts;
  */
 
 /*
- * About page.
- * Display information about the "company" and its team.
- * The page is using a custom template which helps associate
- * custom fields to the "about" page only and not the other
- * "classic" pages.
- */
-Route::match(['get', 'post'], 'template', ['about', 'uses' => 'Pages@about']);
-
-/*
  * Help page.
  * Display a list of Faqs.
  */
