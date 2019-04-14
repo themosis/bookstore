@@ -157,7 +157,8 @@ return [
         App\Hooks\Mail::class,
         App\Hooks\Widgets::class,
         App\Hooks\Books\Books::class,
-        App\Hooks\Books\Promotion::class
+        App\Hooks\Books\Promotion::class,
+        App\Hooks\Team\People::class
     ],
 
     /*
