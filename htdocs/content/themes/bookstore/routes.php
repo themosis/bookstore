@@ -24,44 +24,6 @@ use Theme\Models\Posts;
  */
 
 /*
- * News page.
- * A WordPress page has been define in the administration
- * in order to handle latest posts. This page is accessible
- * through the "is_home()" template conditional function.
- *
- * @param \WP_Post $post
- * @param \WP_Query $query
- *
- * @return string
- */
-Route::match(['get', 'post'], 'home', function($post, \WP_Query $query)
-{
-    /*
-     * We do not have a Twig directive to handle the "WordPress Loop" so we pass
-     * them to the view through the "articles" variable.
-     */
-    return view('twig.blog.news', [
-        'articles' => $query->get_posts()
-    ]);
-});
-
-/*
- * Single post.
- *
- * @param Posts $posts The posts model instance.
- * @param \WP_Post $post The post instance.
- *
- * @return string
- */
-Route::match(['get', 'post'], 'singular', ['post', function(Posts $posts, \WP_Post $post)
-{
-    return view('twig.blog.post', [
-        'article' => $post,
-        'latest_articles' => $posts->find(['posts_per_page' => 2])->get()
-    ]);
-}]);
-
-/*
  * Default archive pages.
  *
  * @param \WP_Post $post

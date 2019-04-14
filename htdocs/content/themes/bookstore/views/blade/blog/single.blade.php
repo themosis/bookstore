@@ -5,26 +5,26 @@
         <div id="news" class="clearfix">
             <!-- Articles -->
             <div id="news--articles">
-                @if($article)
+                @loop
                     <article class="single-article">
                         <div class="article--date">
-                            <span>{{ get_the_date('d F Y', $article->ID) }}</span>
+                            <span>{{ Loop::date('d F Y') }}</span>
                         </div>
-                        <span class="article--title"><h2>{{ $article->post_title }}</h2></span>
-                        @if(has_post_thumbnail($article->ID))
-                            {!! get_the_post_thumbnail($article->ID) !!}
+                        <span class="article--title"><h2>{{ Loop::title() }}</h2></span>
+                        @if(has_post_thumbnail())
+                            {!! Loop::thumbnail() !!}
                         @endif
                         <div class="article--excerpt clearfix">
                             <div class="article--excerpt__content">
-                                {!! wpautop($article->post_content) !!}
+                                {!! Loop::content() !!}
                                 <div class="article--navigation clearfix">
-                                    @php(previous_post_link('%link', __("Previous", THEME_TEXTDOMAIN)))
-                                    @php(next_post_link('%link', __("Next", THEME_TEXTDOMAIN)))
+                                    @php(previous_post_link('%link', __("Previous", THEME_TD)))
+                                    @php(next_post_link('%link', __("Next", THEME_TD)))
                                 </div>
                             </div>
                         </div>
                     </article>
-                @endif
+                @endloop
             </div>
             <!-- End Articles -->
             <!-- Sidebar -->

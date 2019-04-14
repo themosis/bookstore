@@ -17,3 +17,9 @@ Route::any('template', ['about', 'uses' => 'PageController@about']);
 
 // Help page.
 Route::any('page', ['help', 'uses' => 'PageController@help']);
+
+// Blog page.
+Route::any('home', 'BlogController@index');
+
+// Blog single post.
+Route::any('single', 'BlogController@single');
